@@ -4,7 +4,7 @@
 #include <iostream>
 #include <pthread.h>
 #include <string>
-
+#include <sstream>
 using namespace std;
 
 /*****************
@@ -64,16 +64,19 @@ void CommandInterpreterModule::registerCommands() {
 }
 
 void CommandInterpreterModule::start() {
-	string inputString;
+	string inputLine;
 	CommandMap::iterator cmdIterator;
 	CommandData *cmdData;
 	ICommandServer *cmdServer;
 	int cmdID;
+	list<int> args;
+	string command;
 
 	while (running) {
 		cout << "> ";
-		getline(cin, inputString);
-		cmdIterator = registeredCommands.find(inputString);
+		getline(cin, inputLine);
+		extractCommandAndParameters(inputLine, command, args);
+		cmdIterator = registeredCommands.find(command);
 		if (cmdIterator != registeredCommands.end()) {
 			cmdData = cmdIterator->second;
 			cmdServer = cmdData->getCmdServer();
@@ -88,4 +91,45 @@ void CommandInterpreterModule::start() {
 void CommandInterpreterModule::destroy() {
 	delete ciInstance;
 	ciInstance = NULL;
+}
+
+/**
+ * Assume [ ]cmd[ ][arg1[ ][,[ ]arg2]]
+ * [ ] is none or several whitespace
+ */
+int CommandInterpreterModule::extractCommandAndParameters(string inputLine, string &command, list<int> &args) {
+	int argInt;
+	istringstream ss;
+	unsigned int cutAt;
+	const string whitespaces(" ");
+	const string delimiter(",");
+
+	string::size_type beginCmd = inputLine.find_first_not_of(whitespaces);
+	string::size_type endCmd = inputLine.find_first_of(whitespaces, beginCmd);
+	if(endCmd > beginCmd)
+		command = inputLine.substr(beginCmd, endCmd - beginCmd);
+	else
+		command = string();
+
+	args.clear();
+	if(endCmd != inputLine.npos) {
+		inputLine = inputLine.substr(endCmd);
+		while((cutAt = inputLine.find_first_of(delimiter)) != inputLine.npos) {
+			if(cutAt > 0) {
+				ss.clear();
+				ss.str(inputLine.substr(0, cutAt));
+				ss >> argInt;
+				if(!ss.fail())
+					args.push_back(argInt);
+			}
+			inputLine = inputLine.substr(cutAt+1);
+		}
+		if(inputLine.length() > 0) {
+			ss.clear();
+			ss.str(inputLine);
+			ss >> argInt;
+			args.push_back(argInt);
+		}
+	}
+	return args.size();
 }
