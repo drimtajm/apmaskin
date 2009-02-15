@@ -12,6 +12,7 @@ private:
 public:
 	virtual void addEventListener(IEvent::EventType type, IEventListener* listener) = 0;
 	virtual void removeEventListener(IEvent::EventType type, IEventListener* listener) = 0;
+	virtual ~IEventGenerator() {};
 };
 
 #endif /* IEVENTGENERATOR_H_ */
