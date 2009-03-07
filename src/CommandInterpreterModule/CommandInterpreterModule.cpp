@@ -2,9 +2,9 @@
 #include "ICommandServer.h"
 
 #include <iostream>
-#include <pthread.h>
 #include <string>
 #include <sstream>
+
 using namespace std;
 
 /*****************
@@ -81,7 +81,7 @@ void CommandInterpreterModule::start() {
 			cmdData = cmdIterator->second;
 			cmdServer = cmdData->getCmdServer();
 			cmdID = cmdData->getCmdID();
-			cmdServer->executeCommand(cmdID, list<int> ());
+			cmdServer->executeCommand(cmdID, args);
 		} else {
 			cout << "ERROR: Command does not exist." << endl;
 		}
