@@ -42,7 +42,7 @@ void CommandInterpreterModule::registerCommand(string commandString, int cmdID, 
 	registeredCommands.insert(pair<string, CommandData*> (commandString, cmdData));
 }
 
-void CommandInterpreterModule::executeCommand(int cmdID, std::list<int> arguments) {
+void CommandInterpreterModule::executeCommand(int cmdID, std::vector<int> arguments) {
 	switch (cmdID) {
 	case CMD_HELP:
 		cout << "Command list: " << endl;
@@ -69,7 +69,7 @@ void CommandInterpreterModule::start() {
 	CommandData *cmdData;
 	ICommandServer *cmdServer;
 	int cmdID;
-	list<int> args;
+	vector<int> args;
 	string command;
 
 	while (running) {
@@ -97,15 +97,15 @@ void CommandInterpreterModule::destroy() {
  * Assume [ ]cmd[ ][arg1[ ][,[ ]arg2]]
  * [ ] is none or several whitespace
  */
-int CommandInterpreterModule::extractCommandAndParameters(string inputLine, string &command, list<int> &args) {
+int CommandInterpreterModule::extractCommandAndParameters(string inputLine, string &command, vector<int> &args) {
 	int argInt;
 	istringstream ss;
 	unsigned int cutAt;
-	const string whitespaces(" ");
-	const string delimiter(",");
+	const string WHITESPACES(" ");
+	const string DELIMITER(",");
 
-	string::size_type beginCmd = inputLine.find_first_not_of(whitespaces);
-	string::size_type endCmd = inputLine.find_first_of(whitespaces, beginCmd);
+	string::size_type beginCmd = inputLine.find_first_not_of(WHITESPACES);
+	string::size_type endCmd = inputLine.find_first_of(WHITESPACES, beginCmd);
 	if(endCmd > beginCmd)
 		command = inputLine.substr(beginCmd, endCmd - beginCmd);
 	else
@@ -114,7 +114,7 @@ int CommandInterpreterModule::extractCommandAndParameters(string inputLine, stri
 	args.clear();
 	if(endCmd != inputLine.npos) {
 		inputLine = inputLine.substr(endCmd);
-		while((cutAt = inputLine.find_first_of(delimiter)) != inputLine.npos) {
+		while((cutAt = inputLine.find_first_of(DELIMITER)) != inputLine.npos) {
 			if(cutAt > 0) {
 				ss.clear();
 				ss.str(inputLine.substr(0, cutAt));

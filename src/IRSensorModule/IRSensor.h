@@ -15,17 +15,17 @@
 class IRSensor: /*public IEventGenerator,*/ public ICommandServer {
 public:
 	IRSensor();
-	virtual void executeCommand(int cmdID, std::list<int> arguments);
+	virtual void executeCommand(int cmdID, std::vector<int> arguments);
 	virtual void registerCommands();
 
 	virtual ~IRSensor();
 
 private:
 	typedef enum {
-		CMD_IRPING
+		CMD_GETIRDATA
 	} IRSensorCommand;
 
-	int irping(std::list<int> arguments);
+	int irping(std::vector<int> arguments);
 };
 
 #endif /* IRSENSOR_H_ */

@@ -11,7 +11,7 @@ void CameraModule::addEventListener(enum IEvent::EventType type, IEventListener*
 void CameraModule::removeEventListener(enum IEvent::EventType type, IEventListener* listener) {
 }
 
-void CameraModule::executeCommand(int cmdID, std::list<int> arguments) {
+void CameraModule::executeCommand(int cmdID, std::vector<int> arguments) {
 
 }
 
@@ -23,3 +23,4 @@ void CameraModule::registerCommands() {
 
 CameraModule::CameraModule() {
 }
+

@@ -24,7 +24,7 @@ public:
 	CameraModule();
 	void addEventListener(IEvent::EventType type, IEventListener* listener);	//IEventGenerator
 	void removeEventListener(IEvent::EventType type, IEventListener* listener); //IEventGenerator
-	void executeCommand(int cmdID, std::list<int> arguments); 			//ICommandServer
+	void executeCommand(int cmdID, std::vector<int> arguments); 			//ICommandServer
 	void registerCommands();											//ICommandServer
 };
 

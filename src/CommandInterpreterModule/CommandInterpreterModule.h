@@ -4,7 +4,8 @@
 #include "ICommandServer.h"
 #include <string>
 #include <map>
-#include <list>
+#include <vector>
+
 
 class CommandInterpreterModule: public ICommandServer {
 private:
@@ -21,11 +22,11 @@ protected:
 	CommandInterpreterModule();
 	CommandInterpreterModule(const CommandInterpreterModule&);
 	CommandInterpreterModule& operator=(const CommandInterpreterModule&);
-	int extractCommandAndParameters(std::string inputLine, std::string &command, std::list<int> &args);
+	int extractCommandAndParameters(std::string inputLine, std::string &command, std::vector<int> &args);
 public:
 	static CommandInterpreterModule* getInstance();
 	static void destroy();
-	void executeCommand(int cmdID, std::list<int> arguments); //ICommandServer
+	void executeCommand(int cmdID, std::vector<int> arguments); //ICommandServer
 	void registerCommands(); //ICommandServer
 	virtual ~CommandInterpreterModule();
 	void registerCommand(std::string commandString, int cmdID, ICommandServer * const cmdServer);

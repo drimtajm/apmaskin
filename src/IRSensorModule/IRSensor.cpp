@@ -21,21 +21,27 @@ IRSensor::~IRSensor() {
 	// TODO Auto-generated destructor stub
 }
 
-void IRSensor::executeCommand(int cmdID, std::list<int> arguments) {
+void IRSensor::executeCommand(int cmdID, std::vector<int> arguments) {
 	switch (cmdID) {
-	case CMD_IRPING:
+	case CMD_GETIRDATA:
 		irping(arguments);
 	}
 }
 
 void IRSensor::registerCommands() {
 	CommandInterpreterModule *ci = CommandInterpreterModule::getInstance();
-	ci->registerCommand("irping", CMD_IRPING, this);
+	ci->registerCommand("getirdata", CMD_GETIRDATA, this);
 }
 
-int IRSensor::irping(std::list<int> arguments) {
-//	if (arguments)
-	std::cout << arguments.size() << std::endl;
-
+int IRSensor::irping(std::vector<int> arguments) {
+	std::cout << "arguments: " << arguments.size() << std::endl;
+	switch (arguments.size()) {
+	case 1:
+		break;
+	case 2:
+		break;
+	default:
+		break;
+	}
 	return 0;
 }
