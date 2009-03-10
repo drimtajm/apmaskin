@@ -1,10 +1,10 @@
 #ifndef COMMANDINTERPRETERMODULE_H_
 #define COMMANDINTERPRETERMODULE_H_
 
-#include "ICommandServer.h"
 #include <string>
 #include <map>
 #include <vector>
+#include "ICommandServer.h"
 
 
 class CommandInterpreterModule: public ICommandServer {
