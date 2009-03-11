@@ -1,5 +1,5 @@
 #include "CommandInterpreterModule.h"
-#include "ICommandServer.h"
+#include "CommandServer.h"
 
 #include <iostream>
 #include <string>
@@ -37,7 +37,7 @@ CommandInterpreterModule* CommandInterpreterModule::getInstance() {
 	return ciInstance;
 }
 
-void CommandInterpreterModule::registerCommand(string commandString, int cmdID, ICommandServer * const cmdServer) {
+void CommandInterpreterModule::registerCommand(string commandString, int cmdID, CommandServer * const cmdServer) {
 	CommandData *cmdData = new CommandData(cmdID, cmdServer);
 	registeredCommands.insert(pair<string, CommandData*> (commandString, cmdData));
 }
@@ -67,7 +67,7 @@ void CommandInterpreterModule::start() {
 	string inputLine;
 	CommandMap::iterator cmdIterator;
 	CommandData *cmdData;
-	ICommandServer *cmdServer;
+	CommandServer *cmdServer;
 	int cmdID;
 	vector<int> args;
 	string command;

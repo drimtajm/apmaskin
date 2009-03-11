@@ -1,20 +1,20 @@
 #ifndef CAMERAMODULE_H_
 #define CAMERAMODULE_H_
 
-#include "IEvent.h"
-#include "IEventListener.h"
-#include "IEventGenerator.h"
-#include "ICommandServer.h"
+#include "Event.h"
+#include "EventListener.h"
+#include "EventGenerator.h"
+#include "CommandServer.h"
 
 #include <list>
 
 using namespace std;
 
-class CameraModule : public IEventGenerator, ICommandServer {
+class CameraModule : public EventGenerator, CommandServer {
 private:
-	list<IEventListener*> positionErrorListeners;
-	list<IEventListener*> intersectionFoundListeners;
-	list<IEventListener*> numberFoundListeners;
+	list<EventListener*> positionErrorListeners;
+	list<EventListener*> intersectionFoundListeners;
+	list<EventListener*> numberFoundListeners;
 public:
 	typedef enum {
 		CMD_SNAPSHOT,
@@ -22,10 +22,10 @@ public:
 	} CameraCommand;
 
 	CameraModule();
-	void addEventListener(IEvent::EventType type, IEventListener* listener);	//IEventGenerator
-	void removeEventListener(IEvent::EventType type, IEventListener* listener); //IEventGenerator
-	void executeCommand(int cmdID, std::vector<int> arguments); 			//ICommandServer
-	void registerCommands();											//ICommandServer
+	void addEventListener(Event::EventType type, EventListener* listener);	//EventGenerator
+	void removeEventListener(Event::EventType type, EventListener* listener); //EventGenerator
+	void executeCommand(int cmdID, std::vector<int> arguments); 			//CommandServer
+	void registerCommands();											//CommandServer
 };
 
 #endif /* CAMERAMODULE_H_ */

@@ -1,13 +1,13 @@
-#ifndef ICOMMANDSERVER_H_
-#define ICOMMANDSERVER_H_
+#ifndef CommandServer_H_
+#define CommandServer_H_
 
 #include <vector>
 
-class ICommandServer {
+class CommandServer {
 public:
 	virtual void executeCommand(int cmdID, std::vector<int> arguments) = 0;
 	virtual void registerCommands() = 0;
-	virtual ~ICommandServer() {};
+	virtual ~CommandServer() {};
 };
 
-#endif /* ICOMMANDSERVER_H_ */
+#endif /* CommandServer_H_ */

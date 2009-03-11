@@ -1,9 +1,9 @@
 #ifndef POSITIONERROREVENT_H_
 #define POSITIONERROREVENT_H_
 
-#include "IEvent.h"
+#include "Event.h"
 
-class PositionErrorEvent : public IEvent {
+class PositionErrorEvent : public Event {
 private:
 	int distanceError;
 public:

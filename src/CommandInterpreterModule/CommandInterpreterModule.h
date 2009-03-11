@@ -4,10 +4,10 @@
 #include <string>
 #include <map>
 #include <vector>
-#include "ICommandServer.h"
+#include "CommandServer.h"
 
 
-class CommandInterpreterModule: public ICommandServer {
+class CommandInterpreterModule: public CommandServer {
 private:
 	class CommandData;
 	typedef std::map<std::string, CommandData *> CommandMap;
@@ -26,23 +26,23 @@ protected:
 public:
 	static CommandInterpreterModule* getInstance();
 	static void destroy();
-	void executeCommand(int cmdID, std::vector<int> arguments); //ICommandServer
-	void registerCommands(); //ICommandServer
+	void executeCommand(int cmdID, std::vector<int> arguments); //CommandServer
+	void registerCommands(); //CommandServer
 	virtual ~CommandInterpreterModule();
-	void registerCommand(std::string commandString, int cmdID, ICommandServer * const cmdServer);
+	void registerCommand(std::string commandString, int cmdID, CommandServer * const cmdServer);
 	void start();
 };
 
 class CommandInterpreterModule::CommandData {
 private:
-	ICommandServer* const m_cmdServer;
+	CommandServer* const m_cmdServer;
 	int m_cmdID;
 public:
-	CommandData(int cmdID, ICommandServer * const cmdServer) : m_cmdServer(cmdServer), m_cmdID(cmdID) {};
+	CommandData(int cmdID, CommandServer * const cmdServer) : m_cmdServer(cmdServer), m_cmdID(cmdID) {};
 	int getCmdID() {
 		return m_cmdID;
 	}
-	ICommandServer* const getCmdServer() {
+	CommandServer* const getCmdServer() {
 		return m_cmdServer;
 	}
 };

@@ -1,18 +1,18 @@
-#ifndef IEVENT_H_
-#define IEVENT_H_
+#ifndef Event_H_
+#define Event_H_
 
-class IEvent {
+class Event {
 public:
 	enum EventType {POSITION_ERROR_EVENT = 1,
 					INTERSECTION_FOUND_EVENT = 2,
 					NUMBER_FOUND_EVENT = 4,
 					ULTRASONICS_DISTANCE_EVENT = 8,
 					INFRARED_DISTANCE_EVENT = 16};
-	virtual ~IEvent() {};
+	virtual ~Event() {};
 	EventType getEventType();
 protected:
 	EventType eventType;
-	IEvent() {};
+	Event() {};
 };
 
-#endif /* IEVENT_H_ */
+#endif /* Event_H_ */

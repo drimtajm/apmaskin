@@ -9,19 +9,26 @@
 #define EVENTBUFFER_H_
 
 #include <pthread.h>
+#include <semaphore.h>
+#include <vector>
 
-class IEvent;
+class Event;
 
 class EventBuffer {
 private:
-
+	Event const * ev;
 public:
 	EventBuffer(int const bufferSize);
 	virtual ~EventBuffer();
-	void send(IEvent const * const event);
-	IEvent* receive();
+	void send(Event const * const event);
+	Event const * receive();
 private:
 	pthread_mutex_t mutex;
+	sem_t empty;
+	sem_t full;
+	std::vector<Event *> buffer;
+	unsigned int writeIndex;
+	unsigned int readIndex;
 };
 
 #endif /* EVENTBUFFER_H_ */

@@ -8,9 +8,9 @@
 #ifndef IREVENT_H_
 #define IREVENT_H_
 
-#include "IEvent.h"
+#include "Event.h"
 
-class IREvent: public IEvent {
+class IREvent: public Event {
 public:
 	IREvent();
 	virtual ~IREvent();

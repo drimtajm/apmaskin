@@ -4,11 +4,11 @@
 
 using namespace std;
 
-void CameraModule::addEventListener(enum IEvent::EventType type, IEventListener* listener) {
+void CameraModule::addEventListener(enum Event::EventType type, EventListener* listener) {
 }
 
 
-void CameraModule::removeEventListener(enum IEvent::EventType type, IEventListener* listener) {
+void CameraModule::removeEventListener(enum Event::EventType type, EventListener* listener) {
 }
 
 void CameraModule::executeCommand(int cmdID, std::vector<int> arguments) {

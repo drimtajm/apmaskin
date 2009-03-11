@@ -8,11 +8,11 @@
 #ifndef IRSENSOR_H_
 #define IRSENSOR_H_
 
-#include "IEventGenerator.h"
-#include "ICommandServer.h"
+#include "EventGenerator.h"
+#include "CommandServer.h"
 #include <list>
 
-class IRSensor: /*public IEventGenerator,*/ public ICommandServer {
+class IRSensor: /*public EventGenerator,*/ public CommandServer {
 public:
 	IRSensor();
 	virtual void executeCommand(int cmdID, std::vector<int> arguments);
