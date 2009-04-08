@@ -16,7 +16,7 @@ class Event;
 
 class EventQueue {
 public:
-	EventQueue(int const bufferSize);
+	explicit EventQueue(int const bufferSize);
 	virtual ~EventQueue();
 	void send(Event const * const event);
 	Event const * receive();

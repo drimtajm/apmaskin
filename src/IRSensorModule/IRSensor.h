@@ -12,9 +12,10 @@
 #include "CommandServer.h"
 #include <list>
 
-class IRSensor: /*public EventGenerator,*/ public CommandServer {
+class IRSensor: public EventGenerator, CommandServer {
 public:
 	IRSensor();
+	void setMessageQueue(EventQueue* eventQueue);
 	virtual void executeCommand(int cmdID, std::vector<int> arguments);
 	virtual void registerCommands();
 

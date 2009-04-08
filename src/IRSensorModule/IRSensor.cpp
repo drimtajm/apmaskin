@@ -48,3 +48,7 @@ int IRSensor::getirping(const std::vector<int>& arguments) {
 	}
 	return 0;
 }
+
+void IRSensor::setMessageQueue(EventQueue* eventQueue) {
+	//this->eventQueue = eventQueue;
+}

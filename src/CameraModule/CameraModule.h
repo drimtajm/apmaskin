@@ -7,6 +7,7 @@
 #include "CommandServer.h"
 
 #include <list>
+#include "EventQueue.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ private:
 	list<EventListener*> positionErrorListeners;
 	list<EventListener*> intersectionFoundListeners;
 	list<EventListener*> numberFoundListeners;
+	EventQueue* eventQueue;
 public:
 	typedef enum {
 		CMD_SNAPSHOT,
@@ -22,8 +24,7 @@ public:
 	} CameraCommand;
 
 	CameraModule();
-	void addEventListener(Event::EventType type, EventListener* listener);	//EventGenerator
-	void removeEventListener(Event::EventType type, EventListener* listener); //EventGenerator
+	void setMessageQueue(EventQueue* eventQueue);										//EventGenerator
 	void executeCommand(int cmdID, std::vector<int> arguments); 			//CommandServer
 	void registerCommands();											//CommandServer
 };
