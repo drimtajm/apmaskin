@@ -14,12 +14,10 @@
 
 class Event;
 
-class EventBuffer {
-private:
-	Event const * ev;
+class EventQueue {
 public:
-	EventBuffer(int const bufferSize);
-	virtual ~EventBuffer();
+	EventQueue(int const bufferSize);
+	virtual ~EventQueue();
 	void send(Event const * const event);
 	Event const * receive();
 private:
@@ -27,8 +25,10 @@ private:
 	sem_t empty;
 	sem_t full;
 	std::vector<Event *> buffer;
+	Event const ** eventBuffer;
 	unsigned int writeIndex;
 	unsigned int readIndex;
+	unsigned int size;
 };
 
 #endif /* EVENTBUFFER_H_ */

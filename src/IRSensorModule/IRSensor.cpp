@@ -24,19 +24,22 @@ IRSensor::~IRSensor() {
 void IRSensor::executeCommand(int cmdID, std::vector<int> arguments) {
 	switch (cmdID) {
 	case CMD_GETIRDATA:
-		irping(arguments);
+		getirping(arguments);
 	}
 }
 
 void IRSensor::registerCommands() {
 	CommandInterpreterModule *ci = CommandInterpreterModule::getInstance();
-	ci->registerCommand("getirdata", CMD_GETIRDATA, this);
+	ci->registerCommand("getirping", CMD_GETIRDATA, this);
 }
 
-int IRSensor::irping(std::vector<int> arguments) {
-	std::cout << "arguments: " << arguments.size() << std::endl;
+int IRSensor::getirping(const std::vector<int>& arguments) {
 	switch (arguments.size()) {
+	case 0:
+		//Ping left and right
+		break;
 	case 1:
+		//ping left or right
 		break;
 	case 2:
 		break;

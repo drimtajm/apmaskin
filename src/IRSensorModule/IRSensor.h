@@ -25,7 +25,7 @@ private:
 		CMD_GETIRDATA
 	} IRSensorCommand;
 
-	int irping(std::vector<int> arguments);
+	int getirping(const std::vector<int>& arguments);
 };
 
 #endif /* IRSENSOR_H_ */
