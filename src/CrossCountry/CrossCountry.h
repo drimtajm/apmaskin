@@ -13,16 +13,20 @@
 
 class CrossCountry : public CommandServer{
 public:
+	CrossCountry(EventGenerator& irSensor) : irSensor(irSensor) {};
+	virtual ~CrossCountry() {};
 	virtual void executeCommand(int cmdID, std::vector<int> arguments);
 	virtual void registerCommands();
-	CrossCountry(EventGenerator& irSensor);
-	virtual ~CrossCountry();
 private:
-	typedef enum {
+	void cmdCrossCountry(const std::vector<int>& arguments);
+	void startCrossCountry();
+	void stopCrossCountry();
+
+    typedef enum {
 		CMD_CROSSCOUNTRY
 	} CrossCountryCommand;
 
-	int getirping(const std::vector<int>& arguments);
+	EventGenerator& irSensor;
 
 };
 

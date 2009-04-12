@@ -9,22 +9,25 @@
 #include <list>
 #include "IRSensor.h"
 #include "CommandInterpreterModule.h"
+#include "IRSensorReader.h"
+#include "Thread.h"
 
 using namespace std;
 
-IRSensor::IRSensor() {
-	// TODO Auto-generated constructor stub
-
+IRSensor::IRSensor() :
+	readerThread(NULL), reader(NULL) {
 }
 
 IRSensor::~IRSensor() {
-	// TODO Auto-generated destructor stub
+	stopSendEvents();
+//	delete readerThread;
+//	delete reader;
 }
 
 void IRSensor::executeCommand(int cmdID, std::vector<int> arguments) {
 	switch (cmdID) {
 	case CMD_GETIRDATA:
-		getirping(arguments);
+		cmdGetIRPing(arguments);
 	}
 }
 
@@ -33,7 +36,7 @@ void IRSensor::registerCommands() {
 	ci->registerCommand("getirping", CMD_GETIRDATA, this);
 }
 
-int IRSensor::getirping(const std::vector<int>& arguments) {
+int IRSensor::cmdGetIRPing(const std::vector<int>& arguments) {
 	switch (arguments.size()) {
 	case 0:
 		//Ping left and right
@@ -49,6 +52,22 @@ int IRSensor::getirping(const std::vector<int>& arguments) {
 	return 0;
 }
 
-void IRSensor::setMessageQueue(EventQueue* eventQueue) {
-	//this->eventQueue = eventQueue;
+void IRSensor::startSendEvents(EventQueue& eventQueue) {
+	if (reader != NULL) {
+		delete reader;
+	}
+	reader = new IRSensorReader(eventQueue);
+	readerThread = new Thread(reader);
+	readerThread->start();
+}
+
+void IRSensor::stopSendEvents() {
+	if(reader != NULL) {
+		reader->stop();
+		readerThread->join();
+		delete readerThread;
+		delete reader;
+		reader = NULL;
+		readerThread = NULL;
+	}
 }

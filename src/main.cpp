@@ -10,6 +10,7 @@ int main(int argc, char *argv[]) {
 	CameraModule camera;
 	IRSensor irSensor;
 	CommandInterpreterModule& commandInterpreter = *CommandInterpreterModule::getInstance();
+
 	CrossCountry crossCountry(irSensor);
 	crossCountry.registerCommands();
 	commandInterpreter.registerCommands();

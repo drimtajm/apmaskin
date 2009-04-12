@@ -7,11 +7,4 @@
 
 #include "IREvent.h"
 
-IREvent::IREvent() {
-	// TODO Auto-generated constructor stub
 
-}
-
-IREvent::~IREvent() {
-	// TODO Auto-generated destructor stub
-}

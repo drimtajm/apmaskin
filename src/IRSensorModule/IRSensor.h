@@ -8,14 +8,17 @@
 #ifndef IRSENSOR_H_
 #define IRSENSOR_H_
 
+#include <list>
 #include "EventGenerator.h"
 #include "CommandServer.h"
-#include <list>
+#include "Thread.h"
+#include "IRSensorReader.h"
 
 class IRSensor: public EventGenerator, CommandServer {
 public:
 	IRSensor();
-	void setMessageQueue(EventQueue* eventQueue);
+	void startSendEvents(EventQueue& eventQueue);
+	void stopSendEvents();
 	virtual void executeCommand(int cmdID, std::vector<int> arguments);
 	virtual void registerCommands();
 
@@ -25,8 +28,13 @@ private:
 	typedef enum {
 		CMD_GETIRDATA
 	} IRSensorCommand;
+	int cmdGetIRPing(const std::vector<int>& arguments);
+	Thread * readerThread;
+	IRSensorReader * reader;
 
-	int getirping(const std::vector<int>& arguments);
+	//Hidden copy constructor and assignment operator
+	IRSensor(const IRSensor&);
+	IRSensor& operator=(const IRSensor&);
 };
 
 #endif /* IRSENSOR_H_ */

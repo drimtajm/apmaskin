@@ -11,7 +11,8 @@ class EventGenerator {
 private:
 
 public:
-	virtual void setMessageQueue(EventQueue* eventQueue) = 0;
+	virtual void startSendEvents(EventQueue& eventQueue) = 0;
+	virtual void stopSendEvents() = 0;
 	virtual ~EventGenerator() {};
 };
 

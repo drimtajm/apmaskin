@@ -12,8 +12,11 @@
 
 class IREvent: public Event {
 public:
-	IREvent();
-	virtual ~IREvent();
+	IREvent(int val) : Event(INFRARED_DISTANCE_EVENT), value(val) {};
+	virtual ~IREvent() {};
+	int getValue() const { return value; };
+protected:
+	int value;
 };
 
 #endif /* IREVENT_H_ */

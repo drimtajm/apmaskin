@@ -4,20 +4,19 @@
 
 using namespace std;
 
-void CameraModule::setMessageQueue(EventQueue* eventQueue) {
-	this->eventQueue = eventQueue;
+void CameraModule::startSendEvents(EventQueue& eventQueue) {
+	sendQueue = &eventQueue;
 }
+
 
 void CameraModule::executeCommand(int cmdID, std::vector<int> arguments) {
-
 }
-
 
 void CameraModule::registerCommands() {
 	CommandInterpreterModule *ci = CommandInterpreterModule::getInstance();
 	ci->registerCommand("savesnapshot", CMD_SNAPSHOT, this);
 }
 
-CameraModule::CameraModule() : eventQueue(NULL) {
+CameraModule::CameraModule() : sendQueue(NULL) {
 }
 

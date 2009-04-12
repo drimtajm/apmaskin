@@ -16,7 +16,7 @@ private:
 	list<EventListener*> positionErrorListeners;
 	list<EventListener*> intersectionFoundListeners;
 	list<EventListener*> numberFoundListeners;
-	EventQueue* eventQueue;
+	EventQueue* sendQueue;
 public:
 	typedef enum {
 		CMD_SNAPSHOT,
@@ -24,7 +24,8 @@ public:
 	} CameraCommand;
 
 	CameraModule();
-	void setMessageQueue(EventQueue* eventQueue);										//EventGenerator
+	void startSendEvents(EventQueue& eventQueue);							//EventGenerator
+	void stopSendEvents() {};												//EventGenerator
 	void executeCommand(int cmdID, std::vector<int> arguments); 			//CommandServer
 	void registerCommands();											//CommandServer
 };

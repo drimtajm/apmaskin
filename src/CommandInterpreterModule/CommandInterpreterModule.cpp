@@ -74,6 +74,7 @@ void CommandInterpreterModule::start() {
 
 	while (running) {
 		cout << "> ";
+		cin.clear();
 		getline(cin, inputLine);
 		extractCommandAndParameters(inputLine, command, args);
 		cmdIterator = registeredCommands.find(command);

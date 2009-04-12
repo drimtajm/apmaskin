@@ -29,6 +29,10 @@ private:
 	unsigned int writeIndex;
 	unsigned int readIndex;
 	unsigned int size;
+
+	//Hidden copy constructor and assigment operator
+	EventQueue(const EventQueue&);
+	EventQueue& operator=(const EventQueue&);
 };
 
 #endif /* EVENTBUFFER_H_ */

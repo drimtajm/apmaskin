@@ -13,7 +13,6 @@
 
 EventQueue::EventQueue(int const bufferSize) : size(bufferSize) {
 	eventBuffer = new Event const *[bufferSize];
-	pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 	pthread_mutex_init(&mutex, NULL);
 	sem_init(&empty, 0, bufferSize);
 	sem_init(&full, 0, 0);
@@ -30,9 +29,11 @@ void EventQueue::send(Event const * const event) {
 }
 
 Event const * EventQueue::receive() {
-	Event const * const e = eventBuffer[readIndex];
+	Event const * e;
 	sem_wait(&full);
+
 	pthread_mutex_lock(&mutex);
+	e = eventBuffer[readIndex];
 	readIndex = (readIndex + 1) % size;
 	pthread_mutex_unlock(&mutex);
 	sem_post(&empty);

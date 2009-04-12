@@ -9,10 +9,11 @@ public:
 					ULTRASONICS_DISTANCE_EVENT = 8,
 					INFRARED_DISTANCE_EVENT = 16};
 	virtual ~Event() {};
-	EventType getEventType();
+	EventType getEventType() const {return eventType;}
 protected:
+	Event(EventType evType) : eventType(evType) {};
+private:
 	EventType eventType;
-	Event() {};
 };
 
 #endif /* Event_H_ */
