@@ -3,7 +3,7 @@
 
 #include "EventListener.h"
 #include "Event.h"
-#include "EventQueue.h"
+#include "BoundedBuffer.h"
 
 
 
@@ -11,7 +11,7 @@ class EventGenerator {
 private:
 
 public:
-	virtual void startSendEvents(EventQueue<Event>& eventQueue) = 0;
+	virtual void startSendEvents(BoundedBuffer<Event>& eventQueue) = 0;
 	virtual void stopSendEvents() = 0;
 	virtual ~EventGenerator() {};
 };

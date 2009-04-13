@@ -17,7 +17,7 @@
 class IRSensor: public EventGenerator, CommandServer {
 public:
 	IRSensor();
-	void startSendEvents(EventQueue<Event>& eventQueue);
+	void startSendEvents(BoundedBuffer<Event>& eventQueue);
 	void stopSendEvents();
 	virtual void executeCommand(int cmdID, std::vector<int> arguments);
 	virtual void registerCommands();

@@ -8,19 +8,19 @@
 #ifndef IRSENSORREADER_H_
 #define IRSENSORREADER_H_
 
-#include "EventQueue.h"
+#include "BoundedBuffer.h"
 #include "Runnable.h"
 #include "Event.h"
 
 class IRSensorReader : public Runnable {
 public:
-	explicit IRSensorReader(EventQueue<Event>& eventQueue) : sendQueue(eventQueue), running(false) {};
+	explicit IRSensorReader(BoundedBuffer<Event>& eventQueue) : sendQueue(eventQueue), running(false) {};
 	virtual ~IRSensorReader() {};
 	void run();
 	void stop();
 protected:
 	static const int TIME_TO_SLEEP = 1000000;
-	EventQueue<Event>& sendQueue;
+	BoundedBuffer<Event>& sendQueue;
 	bool running; //TODO: Should have mutex
 };
 

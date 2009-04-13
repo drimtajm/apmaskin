@@ -9,7 +9,7 @@
 
 #include <iostream>
 #include "CommandInterpreterModule.h"
-#include "EventQueue.h"
+#include "BoundedBuffer.h"
 #include "IREvent.h"
 #include "Thread.h"
 
@@ -62,7 +62,7 @@ void CrossCountry::registerCommands() {
 
 void CrossCountry::run() {
 	Event const * event;
-	EventQueue<Event> eventQueue(5);
+	BoundedBuffer<Event> eventQueue(5);
 	irSensor.startSendEvents(eventQueue);
 	std::cout << "Cross country competition started" << std::endl;
 	while(getRunning()) {
