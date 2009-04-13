@@ -62,7 +62,7 @@ void CrossCountry::registerCommands() {
 
 void CrossCountry::run() {
 	Event const * event;
-	EventQueue eventQueue(5);
+	EventQueue<Event> eventQueue(5);
 	irSensor.startSendEvents(eventQueue);
 	std::cout << "Cross country competition started" << std::endl;
 	while(getRunning()) {

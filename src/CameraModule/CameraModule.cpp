@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void CameraModule::startSendEvents(EventQueue& eventQueue) {
+void CameraModule::startSendEvents(EventQueue<Event>& eventQueue) {
 	sendQueue = &eventQueue;
 }
 

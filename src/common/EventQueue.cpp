@@ -6,18 +6,19 @@
  */
 
 #include "EventQueue.h"
-#include "Event.h"
 #include <vector>
 
-EventQueue::EventQueue(int const bufferSize) : size(bufferSize) {
-	eventBuffer = new Event const *[bufferSize];
+template<class T>
+EventQueue<T>::EventQueue(int const bufferSize) : size(bufferSize) {
+	eventBuffer = new T const *[bufferSize];
 	pthread_mutex_init(&mutex, NULL);
 	sem_init(&empty, 0, bufferSize);
 	sem_init(&full, 0, 0);
 	writeIndex = readIndex = 0;
 }
 
-EventQueue::~EventQueue() {
+template<class T>
+EventQueue<T>::~EventQueue() {
 	pthread_mutex_destroy(&mutex);
 	sem_destroy(&empty);
 	sem_destroy(&full);
@@ -26,7 +27,8 @@ EventQueue::~EventQueue() {
 	delete [] eventBuffer;
 }
 
-void EventQueue::send(Event const * const event) {
+template<class T>
+void EventQueue<T>::send(T const * const event) {
 	sem_wait(&empty);
 	pthread_mutex_lock(&mutex);
 	eventBuffer[writeIndex] = event;
@@ -35,8 +37,9 @@ void EventQueue::send(Event const * const event) {
 	sem_post(&full);
 }
 
-Event const * EventQueue::receive() {
-	Event const * e;
+template<class T>
+T const * EventQueue<T>::receive() {
+	T const * e;
 	sem_wait(&full);
 	pthread_mutex_lock(&mutex);
 	e = eventBuffer[readIndex];
