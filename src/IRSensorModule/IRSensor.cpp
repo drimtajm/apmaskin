@@ -20,8 +20,6 @@ IRSensor::IRSensor() :
 
 IRSensor::~IRSensor() {
 	stopSendEvents();
-//	delete readerThread;
-//	delete reader;
 }
 
 void IRSensor::executeCommand(int cmdID, std::vector<int> arguments) {

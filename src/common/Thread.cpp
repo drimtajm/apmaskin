@@ -9,10 +9,9 @@
 
 void Thread::start() {
 	if (!running) {
-		pthread_create(&thread, NULL, (void* (*)(void*)) &go, runnable);
 		running = true;
+		pthread_create(&thread, NULL, (void* (*)(void*)) &go, runnable);
 	}
-
 }
 
 void Thread::join() {

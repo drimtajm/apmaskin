@@ -20,7 +20,7 @@ public:
 protected:
 	static const int TIME_TO_SLEEP = 1000000;
 	EventQueue& sendQueue;
-	bool running;
+	bool running; //TODO: Should have mutex
 };
 
 #endif /* IRSENSORREADER_H_ */

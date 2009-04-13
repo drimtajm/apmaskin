@@ -11,6 +11,9 @@
 class Runnable {
 public:
 	virtual ~Runnable() {};
+/**
+ * The function that runs the thread.
+ */
 	virtual void run() = 0;
 };
 

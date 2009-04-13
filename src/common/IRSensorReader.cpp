@@ -15,9 +15,10 @@ using std::cout;
 using std::endl;
 
 void IRSensorReader::run() {
+	int i(0);
 	running = true;
-	for (int i = 0; i < 15 && running; ++i) {
-		IREvent * newEvent = new IREvent(i);
+	while(running) {
+		IREvent const * const newEvent = new IREvent(i++);
 		usleep(TIME_TO_SLEEP);
 		sendQueue.send(newEvent);
 	}

@@ -22,6 +22,9 @@ private:
 	Runnable* runnable;
 	pthread_t thread;
 	bool running;
+	//Hiden copy constructor and assignment operator
+	Thread(const Thread&);
+	Thread& operator=(const Thread&);
 };
 
 #endif /* THREAD_H_ */

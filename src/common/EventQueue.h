@@ -21,6 +21,7 @@ public:
 	void send(Event const * const event);
 	Event const * receive();
 private:
+	bool isEmpty() const {return readIndex == writeIndex; };
 	pthread_mutex_t mutex;
 	sem_t empty;
 	sem_t full;
