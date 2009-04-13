@@ -10,6 +10,7 @@
 #include <iostream>
 #include "CommandInterpreterModule.h"
 #include "BoundedBuffer.h"
+#include "EventGenerator.h"
 #include "IREvent.h"
 #include "Thread.h"
 

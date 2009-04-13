@@ -10,9 +10,9 @@
 
 #include <pthread.h>
 #include "CommandServer.h"
-#include "EventGenerator.h"
 #include "Runnable.h"
-#include "Thread.h"
+class EventGenerator;
+class Thread;
 
 class CrossCountry : public CommandServer, Runnable{
 public:

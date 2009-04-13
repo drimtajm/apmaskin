@@ -8,15 +8,24 @@
 #ifndef IRSENSORREADER_H_
 #define IRSENSORREADER_H_
 
-#include "BoundedBuffer.h"
 #include "Runnable.h"
-#include "Event.h"
+class Event;
+
+template<class T>
+class BoundedBuffer;
 
 class IRSensorReader : public Runnable {
 public:
+	/**
+	 * Read sensor data will be available on eventQueue.
+	 */
 	explicit IRSensorReader(BoundedBuffer<Event>& eventQueue) : sendQueue(eventQueue), running(false) {};
 	virtual ~IRSensorReader() {};
-	void run();
+	void run();		//Runnable
+
+	/**
+	 * Terminate the thread.
+	 */
 	void stop();
 protected:
 	static const int TIME_TO_SLEEP = 1000000;

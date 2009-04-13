@@ -8,6 +8,7 @@
 #include <pthread.h>
 #include <iostream>
 #include <unistd.h>
+#include "BoundedBuffer.h"
 #include "IRSensorReader.h"
 #include "IREvent.h"
 

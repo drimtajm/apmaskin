@@ -32,6 +32,9 @@ public:
 		delete [] buffer;
 	};
 
+	/**
+	 * Adds an item to the bounded buffer. The receiver is responsible for releasing resources.
+	 */
 	void send(T const * const item) {
 		sem_wait(&empty);
 		pthread_mutex_lock(&mutex);
@@ -41,6 +44,9 @@ public:
 		sem_post(&full);
 	};
 
+	/**
+	 * Gets the next item in the buffer. The receiver is responsible for releasing resources.
+	 */
 	T const * receive() {
 		T const * item;
 		sem_wait(&full);

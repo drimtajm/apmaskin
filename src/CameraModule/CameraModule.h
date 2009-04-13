@@ -9,13 +9,11 @@
 #include <list>
 #include "BoundedBuffer.h"
 
-using namespace std;
-
 class CameraModule : public EventGenerator, CommandServer {
 private:
-	list<EventListener*> positionErrorListeners;
-	list<EventListener*> intersectionFoundListeners;
-	list<EventListener*> numberFoundListeners;
+	std::list<EventListener*> positionErrorListeners;
+	std::list<EventListener*> intersectionFoundListeners;
+	std::list<EventListener*> numberFoundListeners;
 	BoundedBuffer<Event>* sendQueue;
 public:
 	typedef enum {

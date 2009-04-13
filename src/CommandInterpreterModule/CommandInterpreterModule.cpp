@@ -102,19 +102,21 @@ int CommandInterpreterModule::extractCommandAndParameters(string inputLine, stri
 	int argInt;
 	istringstream ss;
 	unsigned int cutAt;
-	const string WHITESPACES(" ");
-	const string DELIMITER(",");
+	static const string WHITESPACES("\t ");
+	static const string DELIMITER(",");
 
-	string::size_type beginCmd = inputLine.find_first_not_of(WHITESPACES);
-	string::size_type endCmd = inputLine.find_first_of(WHITESPACES, beginCmd);
+	string::size_type const beginCmd = inputLine.find_first_not_of(WHITESPACES);
+	string::size_type const endCmd = inputLine.find_first_of(WHITESPACES, beginCmd);
 	if(endCmd > beginCmd)
 		command = inputLine.substr(beginCmd, endCmd - beginCmd);
 	else
 		command = string();
 
 	args.clear();
-	if(endCmd != inputLine.npos) {
-		inputLine = inputLine.substr(endCmd);
+	string::size_type beginArgs = inputLine.find_first_not_of(WHITESPACES, endCmd);
+	string::size_type endArgs = inputLine.find_last_not_of(WHITESPACES);
+	if(beginArgs < endArgs) {
+		inputLine = inputLine.substr(beginArgs, endArgs - beginArgs + 1);
 		while((cutAt = inputLine.find_first_of(DELIMITER)) != inputLine.npos) {
 			if(cutAt > 0) {
 				ss.clear();
@@ -132,5 +134,7 @@ int CommandInterpreterModule::extractCommandAndParameters(string inputLine, stri
 			args.push_back(argInt);
 		}
 	}
+	for(int i(0); i < args.size(); ++i)
+	cout << "args(" << i << ") = " << args[i] << endl;
 	return args.size();
 }
