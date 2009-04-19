@@ -26,13 +26,12 @@ private:
 	void startCrossCountry();
 	void stopCrossCountry();
 	void setRunning(bool value);
-	bool const getRunning();
+	bool const isRunning();
     typedef enum {
 		CMD_CROSSCOUNTRY
 	} CrossCountryCommand;
 
 	EventGenerator& irSensor;
-	Thread* thread;
 	bool running;
 	pthread_mutex_t mutex; //lock for CrossCountry::running
 

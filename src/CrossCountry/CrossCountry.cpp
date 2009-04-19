@@ -17,17 +17,19 @@
 using std::cout;
 using std::endl;
 
-CrossCountry::CrossCountry(EventGenerator& irSensor) : irSensor(irSensor), thread(NULL), running(false) {
+CrossCountry::CrossCountry(EventGenerator& irSensor) :
+	irSensor(irSensor), running(false) {
 	pthread_mutex_init(&mutex, NULL);
-};
+}
+;
 
 CrossCountry::~CrossCountry() {
-	if(thread != NULL) {
-		delete thread;
-	}
 	pthread_mutex_destroy(&mutex);
 }
 
+/**
+ * Do stuff depending on arguments.
+ */
 void CrossCountry::cmdCrossCountry(const std::vector<int>& arguments) {
 	if (arguments.size() == 0) {
 		startCrossCountry();
@@ -36,15 +38,22 @@ void CrossCountry::cmdCrossCountry(const std::vector<int>& arguments) {
 	}
 }
 
+/**
+ * Start up the thread that listens to data from the IRSensor if and only if
+ * the thread isn't already started.
+ */
 void CrossCountry::startCrossCountry() {
-	if(thread != NULL) {
-		delete thread;
+	if (!isRunning()) {
+		setRunning(true);
+		Thread(this).start();
+	} else {
+		cout << "Already in crosscountry mode" << endl;
 	}
-	setRunning(true);
-	thread = new Thread(this);
-	thread->start();
 }
 
+/**
+ * Abort the receiving loop in run()
+ */
 void CrossCountry::stopCrossCountry() {
 	setRunning(false);
 }
@@ -65,17 +74,17 @@ void CrossCountry::run() {
 	Event const * event;
 	BoundedBuffer<Event> eventQueue(5);
 	irSensor.startSendEvents(eventQueue);
-	std::cout << "Cross country competition started" << std::endl;
-	while(getRunning()) {
+	cout << "Cross country competition started" << endl;
+	while (isRunning()) {
 		event = eventQueue.receive();
 		if (event->getEventType() == Event::INFRARED_DISTANCE_EVENT) {
-			IREvent const * e = (IREvent*) event;
-			cout << e->getValue() << endl;
+			const IREvent& e = *static_cast<const IREvent*>( event);
+			cout << e.getValue() << endl;
 		}
 		delete event;
 	}
 	irSensor.stopSendEvents();
-	std::cout << "Cross country competition ended" << std::endl;
+	cout << "Cross country competition ended" << endl;
 }
 
 inline void CrossCountry::setRunning(bool value) {
@@ -85,7 +94,7 @@ inline void CrossCountry::setRunning(bool value) {
 
 }
 
-inline bool const CrossCountry::getRunning() {
+inline bool const CrossCountry::isRunning() {
 	pthread_mutex_lock(&mutex);
 	bool const value = running;
 	pthread_mutex_unlock(&mutex);

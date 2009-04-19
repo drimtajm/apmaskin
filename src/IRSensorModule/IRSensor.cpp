@@ -51,9 +51,7 @@ int IRSensor::cmdGetIRPing(const std::vector<int>& arguments) {
 }
 
 void IRSensor::startSendEvents(BoundedBuffer<Event>& eventQueue) {
-	if (reader != NULL) {
-		delete reader;
-	}
+	delete reader;
 	reader = new IRSensorReader(eventQueue);
 	readerThread = new Thread(reader);
 	readerThread->start();

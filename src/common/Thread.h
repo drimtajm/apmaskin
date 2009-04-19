@@ -14,7 +14,7 @@
 class Thread {
 public:
 	explicit Thread(Runnable* r) : runnable(r), running(false) {};
-	virtual ~Thread() {join(); };
+	virtual ~Thread() { };
 	/**
 	 * Start to execute the thread. This methos can only be executed once on each object.
 	 */
@@ -25,7 +25,7 @@ public:
 	 */
 	void join();
 private:
-	static void go(Runnable* r) { r->run(); };
+	static void go(Runnable* r) { r->run(); }
 	Runnable* runnable;
 	pthread_t thread;
 	bool running;
