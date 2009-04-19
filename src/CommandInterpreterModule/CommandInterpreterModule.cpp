@@ -114,9 +114,9 @@ int CommandInterpreterModule::extractCommandAndParameters(string inputLine, stri
 
 	args.clear();
 	string::size_type beginArgs = inputLine.find_first_not_of(WHITESPACES, endCmd);
-	string::size_type endArgs = inputLine.find_last_not_of(WHITESPACES);
+	string::size_type endArgs = inputLine.find_last_not_of(WHITESPACES) + 1;
 	if(beginArgs < endArgs) {
-		inputLine = inputLine.substr(beginArgs, endArgs - beginArgs + 1);
+		inputLine = inputLine.substr(beginArgs, endArgs - beginArgs);
 		while((cutAt = inputLine.find_first_of(DELIMITER)) != inputLine.npos) {
 			if(cutAt > 0) {
 				ss.clear();
@@ -134,7 +134,5 @@ int CommandInterpreterModule::extractCommandAndParameters(string inputLine, stri
 			args.push_back(argInt);
 		}
 	}
-	for(int i(0); i < args.size(); ++i)
-	cout << "args(" << i << ") = " << args[i] << endl;
 	return args.size();
 }
