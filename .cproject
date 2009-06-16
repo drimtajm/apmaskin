@@ -43,8 +43,9 @@
 </tool>
 <tool id="cdt.managedbuild.tool.gnu.c.linker.cygwin.exe.debug.1707640795" name="Cygwin C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.cygwin.exe.debug"/>
 <tool id="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.exe.debug.554082964" name="Cygwin C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.exe.debug">
-<option id="gnu.cpp.link.option.paths.141279883" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths"/>
-<option id="gnu.cpp.link.option.libs.1018153672" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<option id="gnu.cpp.link.option.paths.141279883" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths"/>
+<option id="gnu.cpp.link.option.libs.1018153672" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<listOptionValue builtIn="false" value="rt"/>
 <listOptionValue builtIn="false" value="pthread"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1976914036" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
@@ -1181,8 +1182,9 @@
 </tool>
 <tool id="cdt.managedbuild.tool.gnu.c.linker.cygwin.exe.release.1623032348" name="Cygwin C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.cygwin.exe.release"/>
 <tool id="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.exe.release.1490181709" name="Cygwin C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.exe.release">
-<option id="gnu.cpp.link.option.paths.1383050355" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths"/>
-<option id="gnu.cpp.link.option.libs.1034024443" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<option id="gnu.cpp.link.option.paths.1383050355" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths"/>
+<option id="gnu.cpp.link.option.libs.1034024443" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<listOptionValue builtIn="false" value="rt"/>
 <listOptionValue builtIn="false" value="pthread"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1811097431" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
@@ -2318,6 +2320,7 @@
 <tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.1245148069" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
 <option id="gnu.cpp.link.option.paths.2041298726" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths"/>
 <option id="gnu.cpp.link.option.libs.1149610294" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<listOptionValue builtIn="false" value="rt"/>
 <listOptionValue builtIn="false" value="pthread"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.800909647" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
@@ -3455,7 +3458,8 @@
 <tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.387946017" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release"/>
 <tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.196877801" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
 <option id="gnu.cpp.link.option.paths.1913433616" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths"/>
-<option id="gnu.cpp.link.option.libs.1206718563" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<option id="gnu.cpp.link.option.libs.1206718563" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<listOptionValue builtIn="false" value="rt"/>
 <listOptionValue builtIn="false" value="pthread"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1224297900" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
@@ -4592,8 +4596,9 @@
 </tool>
 <tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.174453704" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release"/>
 <tool command="arm-none-linux-gnueabi-g++" id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.1713415065" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
-<option id="gnu.cpp.link.option.paths.1687987130" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths"/>
-<option id="gnu.cpp.link.option.libs.2122743568" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<option id="gnu.cpp.link.option.paths.1687987130" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths"/>
+<option id="gnu.cpp.link.option.libs.2122743568" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<listOptionValue builtIn="false" value="rt"/>
 <listOptionValue builtIn="false" value="pthread"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1815328638" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
@@ -5731,7 +5736,8 @@
 <tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.2055765551" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug"/>
 <tool command="arm-none-linux-gnueabi-g++" id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.109442598" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
 <option id="gnu.cpp.link.option.paths.218170059" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths"/>
-<option id="gnu.cpp.link.option.libs.1820361944" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<option id="gnu.cpp.link.option.libs.1820361944" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+<listOptionValue builtIn="false" value="rt"/>
 <listOptionValue builtIn="false" value="pthread"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.447961019" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">

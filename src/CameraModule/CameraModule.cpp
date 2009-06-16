@@ -2,8 +2,6 @@
 #include "CameraModule.h"
 #include "CommandInterpreterModule.h"
 
-using namespace std;
-
 void CameraModule::startSendEvents(BoundedBuffer<Event>& eventQueue) {
 	sendQueue = &eventQueue;
 }
