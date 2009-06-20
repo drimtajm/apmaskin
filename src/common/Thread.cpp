@@ -6,15 +6,15 @@
  */
 
 #include "Thread.h"
+#include <cassert>
 
 void Thread::start() {
-	if (!running) {
-		running = true;
-		pthread_create(&thread, NULL, (void* (*)(void*)) &go, runnable);
-	}
+	assert(!running && "Can't start an Thread more than once.");
+	running = true;
+	pthread_create(&thread, NULL, (void* (*)(void*)) &go, runnable);
 }
 
 void Thread::join() {
-	if (running)
-		pthread_join(thread, NULL);
+	assert(running && "Can't join a non started thread");
+	pthread_join(thread, NULL);
 }
