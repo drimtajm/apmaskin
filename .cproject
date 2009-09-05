@@ -33,6 +33,7 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/CameraModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.1466052011" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin"/>
 </tool>
@@ -1144,8 +1145,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -1227,8 +1228,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -1342,6 +1343,7 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/CameraModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.972167562" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin"/>
 </tool>
@@ -2453,8 +2455,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -2536,8 +2538,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -2648,6 +2650,7 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/CameraModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.505535828" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 </tool>
@@ -3762,8 +3765,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -3845,8 +3848,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -3957,6 +3960,7 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/CameraModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 </tool>
@@ -5071,8 +5075,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -5154,8 +5158,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -5257,7 +5261,7 @@
 <targetPlatform id="cdt.managedbuild.target.gnu.platform.exe.release.1319706813" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.exe.release"/>
 <builder buildPath="${workspace_loc:/Apmaskin/Release_with_Linux GCC}" id="cdt.managedbuild.target.gnu.builder.exe.release.976214553" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.release"/>
 <tool id="cdt.managedbuild.tool.gnu.archiver.base.1082571457" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
-<tool command="arm-none-linux-gnueabi-g++" id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.54274360" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release">
+<tool command="arm-linux-g++" id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.54274360" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.release">
 <option id="gnu.cpp.compiler.exe.release.option.optimization.level.339795919" name="Optimization Level" superClass="gnu.cpp.compiler.exe.release.option.optimization.level" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 <option id="gnu.cpp.compiler.exe.release.option.debugging.level.1507316711" name="Debug Level" superClass="gnu.cpp.compiler.exe.release.option.debugging.level" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 <option id="gnu.cpp.compiler.option.include.paths.1610804399" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
@@ -5266,16 +5270,17 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/CameraModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.86461685" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 </tool>
-<tool command="arm-none-linux-gnueabi-gcc" id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.1005507533" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release">
+<tool command="arm-linux-gcc" id="cdt.managedbuild.tool.gnu.c.compiler.exe.release.1005507533" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.release">
 <option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.exe.release.option.optimization.level.1825774915" name="Optimization Level" superClass="gnu.c.compiler.exe.release.option.optimization.level" valueType="enumerated"/>
 <option id="gnu.c.compiler.exe.release.option.debugging.level.1930947334" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1416601125" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 </tool>
 <tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.174453704" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release"/>
-<tool command="arm-none-linux-gnueabi-g++" id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.1713415065" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
+<tool command="arm-linux-g++" id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.1713415065" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
 <option id="gnu.cpp.link.option.paths.1687987130" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths"/>
 <option id="gnu.cpp.link.option.libs.2122743568" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 <listOptionValue builtIn="false" value="rt"/>
@@ -5286,7 +5291,7 @@
 <additionalInput kind="additionalinput" paths="$(LIBS)"/>
 </inputType>
 </tool>
-<tool command="arm-none-linux-gnueabi-as" id="cdt.managedbuild.tool.gnu.assembler.exe.release.1361658504" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.release">
+<tool command="arm-linux-as" id="cdt.managedbuild.tool.gnu.assembler.exe.release.1361658504" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.release">
 <inputType id="cdt.managedbuild.tool.gnu.assembler.input.586054284" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 </tool>
 </toolChain>
@@ -6380,8 +6385,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -6463,8 +6468,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -6566,7 +6571,7 @@
 <targetPlatform id="cdt.managedbuild.target.gnu.platform.exe.debug.2114490035" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.exe.debug"/>
 <builder buildPath="${workspace_loc:/Apmaskin/Debug_with_Linux GCC}" id="cdt.managedbuild.target.gnu.builder.exe.debug.236139118" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.exe.debug"/>
 <tool id="cdt.managedbuild.tool.gnu.archiver.base.240128122" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.base"/>
-<tool command="arm-none-linux-gnueabi-g++" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG}${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1891315384" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug">
+<tool command="arm-linux-g++" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG}${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.1891315384" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug">
 <option id="gnu.cpp.compiler.exe.debug.option.optimization.level.1880155315" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 <option id="gnu.cpp.compiler.exe.debug.option.debugging.level.1744605664" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 <option id="gnu.cpp.compiler.option.include.paths.1994664044" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
@@ -6575,16 +6580,17 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/CameraModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.669394807" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 </tool>
-<tool command="arm-none-linux-gnueabi-gcc" id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">
+<tool command="arm-linux-gcc" id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">
 <option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.1224465811" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" valueType="enumerated"/>
 <option id="gnu.c.compiler.exe.debug.option.debugging.level.2050446451" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1314984017" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 </tool>
 <tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.2055765551" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug"/>
-<tool command="arm-none-linux-gnueabi-g++" id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.109442598" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
+<tool command="arm-linux-g++" id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.109442598" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
 <option id="gnu.cpp.link.option.paths.218170059" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths"/>
 <option id="gnu.cpp.link.option.libs.1820361944" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 <listOptionValue builtIn="false" value="rt"/>
@@ -6595,7 +6601,7 @@
 <additionalInput kind="additionalinput" paths="$(LIBS)"/>
 </inputType>
 </tool>
-<tool command="arm-none-linux-gnueabi-as" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG}${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" id="cdt.managedbuild.tool.gnu.assembler.exe.debug.585610594" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug">
+<tool command="arm-linux-as" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG}${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" id="cdt.managedbuild.tool.gnu.assembler.exe.debug.585610594" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug">
 <inputType id="cdt.managedbuild.tool.gnu.assembler.input.269540338" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 </tool>
 </toolChain>
@@ -7689,8 +7695,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -7772,8 +7778,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -7879,6 +7885,7 @@
 <option id="gnu.cpp.compiler.exe.debug.option.optimization.level.102511144" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 <option id="gnu.cpp.compiler.exe.debug.option.debugging.level.1842905516" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 <option id="gnu.cpp.compiler.option.include.paths.41324160" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/interfaces}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/CommandInterpreterModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/CameraModule}&quot;"/>
@@ -8999,8 +9006,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>
@@ -9082,8 +9089,8 @@
 </scannerInfoProvider>
 </profile>
 </scannerConfigBuildInfo>
-<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632;cdt.managedbuild.config.gnu.exe.debug.1980650645.1206424632.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1216506890;cdt.managedbuild.tool.gnu.c.compiler.input.1314984017">
-<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileC"/>
+<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.1816250818;cdt.managedbuild.config.gnu.exe.release.1816250818.;cdt.managedbuild.tool.gnu.cpp.compiler.exe.release.1592390001;cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.managedbuilder.core.GCCManagedMakePerProjectProfileCPP"/>
 <profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
 <buildOutputProvider>
 <openAction enabled="true" filePath=""/>

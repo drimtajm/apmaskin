@@ -6,7 +6,7 @@
  */
 
 
-#include <test/gtest.h>
+#include "gtest.h"
 #include "BoundedBuffer.h"
 
 class BoundedBufferTest : public testing::Test  {
@@ -16,7 +16,7 @@ protected:
 
 };
 
-TEST_F(BoundedBufferTest, firstInShouldBeFirstOut) {
+TEST_F (BoundedBufferTest, firstInShouldBeFirstOut) {
   int a = 1;
   int b = 2;
   buffer.send(&a);
@@ -24,3 +24,5 @@ TEST_F(BoundedBufferTest, firstInShouldBeFirstOut) {
   EXPECT_EQ(&a, buffer.receive());
   EXPECT_EQ(&b, buffer.receive());
 }
+
+
