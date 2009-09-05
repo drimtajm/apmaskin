@@ -7,7 +7,6 @@
 
 #ifndef IRSENSOR_H_
 #define IRSENSOR_H_
-
 #include <list>
 #include "EventGenerator.h"
 #include "CommandServer.h"

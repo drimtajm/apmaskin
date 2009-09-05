@@ -4,8 +4,12 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <boost/spirit/core.hpp>
+#include "CommandParser.h"
 
 using namespace std;
+using namespace boost::spirit;
+
 
 /*****************
  * class members *
@@ -98,41 +102,8 @@ void CommandInterpreterModule::destroy() {
  * Assume [ ]cmd[ ][arg1[ ][,[ ]arg2]]
  * [ ] is none or several whitespace
  */
-int CommandInterpreterModule::extractCommandAndParameters(string inputLine, string &command, vector<int> &args) {
-	int argInt;
-	istringstream ss;
-	unsigned int cutAt;
-	static const string WHITESPACES("\t ");
-	static const string DELIMITER(",");
-
-	string::size_type const beginCmd = inputLine.find_first_not_of(WHITESPACES);
-	string::size_type const endCmd = inputLine.find_first_of(WHITESPACES, beginCmd);
-	if(endCmd > beginCmd)
-		command = inputLine.substr(beginCmd, endCmd - beginCmd);
-	else
-		command = string();
-
+void CommandInterpreterModule::extractCommandAndParameters(string inputLine, string &command, vector<int> &args) {
 	args.clear();
-	string::size_type beginArgs = inputLine.find_first_not_of(WHITESPACES, endCmd);
-	string::size_type endArgs = inputLine.find_last_not_of(WHITESPACES) + 1;
-	if(beginArgs < endArgs) {
-		inputLine = inputLine.substr(beginArgs, endArgs - beginArgs);
-		while((cutAt = inputLine.find_first_of(DELIMITER)) != inputLine.npos) {
-			if(cutAt > 0) {
-				ss.clear();
-				ss.str(inputLine.substr(0, cutAt));
-				ss >> argInt;
-				if(!ss.fail())
-					args.push_back(argInt);
-			}
-			inputLine = inputLine.substr(cutAt+1);
-		}
-		if(inputLine.length() > 0) {
-			ss.clear();
-			ss.str(inputLine);
-			ss >> argInt;
-			args.push_back(argInt);
-		}
-	}
-	return args.size();
+	CommandParser parser(command, args);
+	parse_info<> info = parse(inputLine.c_str(), parser, space_p);
 }

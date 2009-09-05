@@ -34,6 +34,7 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/lib}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.1466052011" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin"/>
 </tool>
@@ -1344,6 +1345,7 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/lib}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin.972167562" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input.cygwin"/>
 </tool>
@@ -2651,6 +2653,7 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/lib}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.505535828" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 </tool>
@@ -3961,6 +3964,7 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/lib}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.339942299" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 </tool>
@@ -5271,6 +5275,7 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/lib}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.86461685" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 </tool>
@@ -6581,6 +6586,7 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/test}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/lib}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.669394807" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 </tool>
@@ -7892,6 +7898,7 @@
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/IRSensorModule}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/src/common}&quot;"/>
 <listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Apmaskin/lib}&quot;"/>
 </option>
 <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.706778935" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 </tool>

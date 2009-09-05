@@ -22,7 +22,7 @@ protected:
 	CommandInterpreterModule();
 	CommandInterpreterModule(const CommandInterpreterModule&);
 	CommandInterpreterModule& operator=(const CommandInterpreterModule&);
-	int extractCommandAndParameters(std::string inputLine, std::string &command, std::vector<int> &args);
+	void extractCommandAndParameters(std::string inputLine, std::string &command, std::vector<int> &args);
 public:
 	static CommandInterpreterModule* getInstance();
 	static void destroy();
