@@ -10,7 +10,6 @@
 using namespace std;
 using namespace boost::spirit;
 
-
 /*****************
  * class members *
  *****************/
@@ -21,7 +20,8 @@ CommandInterpreterModule* CommandInterpreterModule::ciInstance = NULL;
  * Private functions *
  *********************/
 
-CommandInterpreterModule::CommandInterpreterModule(std::istream& _input, std::ostream& _output) :
+CommandInterpreterModule::CommandInterpreterModule(std::istream& _input,
+		std::ostream& _output) :
 	running(true), input(_input), output(_output) {
 }
 
@@ -30,7 +30,8 @@ CommandInterpreterModule::CommandInterpreterModule(std::istream& _input, std::os
  ********************/
 
 CommandInterpreterModule::~CommandInterpreterModule() {
-	for(CommandMap::iterator it = registeredCommands.begin(); it != registeredCommands.end(); ++it) {
+	for (CommandMap::iterator it = registeredCommands.begin(); it
+			!= registeredCommands.end(); ++it) {
 		delete it->second;
 	}
 }
@@ -38,28 +39,33 @@ CommandInterpreterModule::~CommandInterpreterModule() {
 CommandInterpreterModule* CommandInterpreterModule::getInstance() {
 	return getInstance(std::cin, std::cout);
 }
-CommandInterpreterModule* CommandInterpreterModule::getInstance(std::istream& input, std::ostream& output) {
+CommandInterpreterModule* CommandInterpreterModule::getInstance(
+		std::istream& input, std::ostream& output) {
 	if (ciInstance == NULL)
 		ciInstance = new CommandInterpreterModule(input, output);
 	return ciInstance;
 }
 
-void CommandInterpreterModule::registerCommand(string commandString, int cmdID, CommandServer * const cmdServer) {
+void CommandInterpreterModule::registerCommand(string commandString, int cmdID,
+		CommandServer * const cmdServer) {
 	CommandData *cmdData = new CommandData(cmdID, cmdServer);
-	registeredCommands.insert(pair<string, CommandData*> (commandString, cmdData));
+	registeredCommands.insert(pair<string, CommandData*> (commandString,
+			cmdData));
 }
 
-void CommandInterpreterModule::executeCommand(int cmdID, std::vector<int> arguments) {
+void CommandInterpreterModule::executeCommand(int cmdID,
+		std::vector<int> arguments) {
 	switch (cmdID) {
 	case CMD_HELP:
-		cout << "Command list: " << endl;
-		for (CommandMap::iterator it = registeredCommands.begin(); it != registeredCommands.end(); ++it) {
-			cout << "\t" << it->first << endl;
+		output << "Command list: " << endl;
+		for (CommandMap::iterator it = registeredCommands.begin(); it
+				!= registeredCommands.end(); ++it) {
+			output << "\t" << it->first << endl;
 		}
 		break;
 	case CMD_EXIT:
 		running = false;
-		cout << "Goodbye!" << endl;
+		output << "Goodbye!" << endl;
 		break;
 	}
 }
@@ -78,20 +84,23 @@ void CommandInterpreterModule::start() {
 	int cmdID;
 	vector<int> args;
 	string command;
+	output << "> ";
 
 	while (running) {
-		cout << "> ";
-		cin.clear();
-		getline(cin, inputLine);
-		extractCommandAndParameters(inputLine, command, args);
-		cmdIterator = registeredCommands.find(command);
-		if (cmdIterator != registeredCommands.end()) {
-			cmdData = cmdIterator->second;
-			cmdServer = cmdData->getCmdServer();
-			cmdID = cmdData->getCmdID();
-			cmdServer->executeCommand(cmdID, args);
-		} else {
-			cout << "ERROR: Command does not exist." << endl;
+		if (!input.eof()) {
+			input.clear();
+			getline(input, inputLine);
+			extractCommandAndParameters(inputLine, command, args);
+			cmdIterator = registeredCommands.find(command);
+			if (cmdIterator != registeredCommands.end()) {
+				cmdData = cmdIterator->second;
+				cmdServer = cmdData->getCmdServer();
+				cmdID = cmdData->getCmdID();
+				cmdServer->executeCommand(cmdID, args);
+			} else {
+				output << "ERROR: Command does not exist." << endl;
+			}
+			output << "> ";
 		}
 	}
 }
@@ -105,7 +114,8 @@ void CommandInterpreterModule::destroy() {
  * Assume [ ]cmd[ ][arg1[ ][,[ ]arg2]]
  * [ ] is none or several whitespace
  */
-void CommandInterpreterModule::extractCommandAndParameters(string inputLine, string &command, vector<int> &args) {
+void CommandInterpreterModule::extractCommandAndParameters(string inputLine,
+		string &command, vector<int> &args) {
 	args.clear();
 	CommandParser parser(command, args);
 	parse_info<> info = parse(inputLine.c_str(), parser, space_p);
