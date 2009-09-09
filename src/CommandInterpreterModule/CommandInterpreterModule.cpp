@@ -21,8 +21,8 @@ CommandInterpreterModule* CommandInterpreterModule::ciInstance = NULL;
  * Private functions *
  *********************/
 
-CommandInterpreterModule::CommandInterpreterModule() :
-	running(true) {
+CommandInterpreterModule::CommandInterpreterModule(std::istream& _input, std::ostream& _output) :
+	running(true), input(_input), output(_output) {
 }
 
 /********************
@@ -36,8 +36,11 @@ CommandInterpreterModule::~CommandInterpreterModule() {
 }
 
 CommandInterpreterModule* CommandInterpreterModule::getInstance() {
+	return getInstance(std::cin, std::cout);
+}
+CommandInterpreterModule* CommandInterpreterModule::getInstance(std::istream& input, std::ostream& output) {
 	if (ciInstance == NULL)
-		ciInstance = new CommandInterpreterModule();
+		ciInstance = new CommandInterpreterModule(input, output);
 	return ciInstance;
 }
 

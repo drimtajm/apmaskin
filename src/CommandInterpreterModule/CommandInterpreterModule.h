@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <iostream>
 #include "CommandServer.h"
 
 
@@ -18,13 +19,16 @@ private:
 	static CommandInterpreterModule *ciInstance;
 	bool running;
 	CommandMap registeredCommands;
+	std::istream& input;
+	std::ostream& output;
 protected:
-	CommandInterpreterModule();
+	CommandInterpreterModule(std::istream& input, std::ostream& output);
 	CommandInterpreterModule(const CommandInterpreterModule&);
 	CommandInterpreterModule& operator=(const CommandInterpreterModule&);
 	void extractCommandAndParameters(std::string inputLine, std::string &command, std::vector<int> &args);
 public:
 	static CommandInterpreterModule* getInstance();
+	static CommandInterpreterModule* getInstance(std::istream& input, std::ostream& output);
 	static void destroy();
 	void executeCommand(int cmdID, std::vector<int> arguments); //CommandServer
 	void registerCommands(); //CommandServer
