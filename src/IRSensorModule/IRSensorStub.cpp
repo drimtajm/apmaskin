@@ -1,10 +1,10 @@
 /*
  * IRSensor.cpp
  *
- *  Created on: 2009-mar-03
- *      Author: bege
+ *  Created on: 2009-sep-09
+ *      Author: daniel
  *
- *      This implementation of the IRSensor module will only build on target platform
+ *      This implementation of the IRSensor module will build on all platforms except target
  */
 
 #include <iostream>
