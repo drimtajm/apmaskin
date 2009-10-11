@@ -1,10 +1,9 @@
-#include "CommandInterpreterModule.h"
-#include "CommandServer.h"
-
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <boost/spirit/core.hpp>
+#include "CommandInterpreterModule.h"
+#include "CommandServer.h"
 #include "CommandParser.h"
 
 using namespace std;
@@ -118,5 +117,7 @@ void CommandInterpreterModule::extractCommandAndParameters(string inputLine,
 		string &command, vector<int> &args) {
 	args.clear();
 	CommandParser parser(command, args);
+    BOOST_SPIRIT_DEBUG_NODE(parser);
+
 	parse_info<> info = parse(inputLine.c_str(), parser, space_p);
 }
