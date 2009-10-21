@@ -16,20 +16,16 @@ private:
 		CMD_HELP, CMD_EXIT
 	} CommandInterpreterCommand;
 
-	static CommandInterpreterModule *ciInstance;
 	bool running;
 	CommandMap registeredCommands;
 	std::istream& input;
 	std::ostream& output;
 protected:
-	CommandInterpreterModule(std::istream& input, std::ostream& output);
 	CommandInterpreterModule(const CommandInterpreterModule&);
 	CommandInterpreterModule& operator=(const CommandInterpreterModule&);
 	void extractCommandAndParameters(std::string inputLine, std::string &command, std::vector<int> &args);
 public:
-	static CommandInterpreterModule* getInstance();
-	static CommandInterpreterModule* getInstance(std::istream& input, std::ostream& output);
-	static void destroy();
+	CommandInterpreterModule(std::istream& input = std::cin, std::ostream& output = std::cout);
 	void executeCommand(int cmdID, std::vector<int> arguments); //CommandServer
 	void registerCommands(); //CommandServer
 	virtual ~CommandInterpreterModule();

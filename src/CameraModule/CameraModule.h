@@ -6,11 +6,13 @@
 #include "EventGenerator.h"
 #include "CommandServer.h"
 
-#include <list>
 #include "BoundedBuffer.h"
+#include "CommandInterpreterModule.h"
+#include <list>
 
 class CameraModule : public EventGenerator, CommandServer {
 private:
+	CommandInterpreterModule& commandInterpreter;
 	std::list<EventListener*> positionErrorListeners;
 	std::list<EventListener*> intersectionFoundListeners;
 	std::list<EventListener*> numberFoundListeners;
@@ -21,7 +23,7 @@ public:
 		CMD_CALIBRATE
 	} CameraCommand;
 
-	CameraModule();
+	CameraModule(CommandInterpreterModule& commandInterpreter);
 	void startSendEvents(BoundedBuffer<Event>& eventQueue);							//EventGenerator
 	void stopSendEvents() {};												//EventGenerator
 	void executeCommand(int cmdID, std::vector<int> arguments); 			//CommandServer

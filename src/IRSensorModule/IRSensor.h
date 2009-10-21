@@ -12,10 +12,12 @@
 #include "CommandServer.h"
 #include "Thread.h"
 #include "IRSensorReader.h"
+#include "CommandInterpreterModule.h"
+
 
 class IRSensor: public EventGenerator, CommandServer {
 public:
-	IRSensor();
+	IRSensor(CommandInterpreterModule& commandInterpreter);
 	void startSendEvents(BoundedBuffer<Event>& eventQueue);
 	void stopSendEvents();
 	virtual void executeCommand(int cmdID, std::vector<int> arguments);
@@ -27,13 +29,15 @@ private:
 	typedef enum {
 		CMD_GETIRDATA
 	} IRSensorCommand;
-	int cmdGetIRPing(const std::vector<int>& arguments);
-	Thread * readerThread;
-	IRSensorReader * reader;
 
 	//Hidden copy constructor and assignment operator
 	IRSensor(const IRSensor&);
 	IRSensor& operator=(const IRSensor&);
+	int cmdGetIRPing(const std::vector<int>& arguments);
+	CommandInterpreterModule& commandInterpreter;
+	Thread * readerThread;
+	IRSensorReader * reader;
+
 };
 
 #endif /* IRSENSOR_H_ */

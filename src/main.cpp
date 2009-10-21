@@ -3,19 +3,22 @@
 #include "CommandInterpreterModule.h"
 #include "IRSensor.h"
 #include "CrossCountry/CrossCountry.h"
+#include "SteeringModule/SteeringModule.h"
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
-	CameraModule camera;
-	IRSensor irSensor;
-	CommandInterpreterModule& commandInterpreter = *CommandInterpreterModule::getInstance();
+	CommandInterpreterModule commandInterpreter;
+	CameraModule camera(commandInterpreter);
+	IRSensor irSensor(commandInterpreter);
 
-	CrossCountry crossCountry(irSensor);
+	CrossCountry crossCountry(commandInterpreter, irSensor);
+	SteeringModule steering;
 	crossCountry.registerCommands();
 	commandInterpreter.registerCommands();
 	camera.registerCommands();
 	irSensor.registerCommands();
+	steering.registerCommands();
 	commandInterpreter.start();
 	CommandInterpreterModule::destroy();
 

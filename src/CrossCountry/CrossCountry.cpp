@@ -17,8 +17,8 @@
 using std::cout;
 using std::endl;
 
-CrossCountry::CrossCountry(EventGenerator& irSensor) :
-	irSensor(irSensor), running(false) {
+CrossCountry::CrossCountry(CommandInterpreterModule& ci, EventGenerator& irSensor) :
+	commandInterpreter(ci), irSensor(irSensor), running(false) {
 	pthread_mutex_init(&mutex, NULL);
 }
 ;
@@ -66,8 +66,7 @@ void CrossCountry::executeCommand(int cmdID, std::vector<int> arguments) {
 }
 
 void CrossCountry::registerCommands() {
-	CommandInterpreterModule *ci = CommandInterpreterModule::getInstance();
-	ci->registerCommand("crosscountry", CMD_CROSSCOUNTRY, this);
+	commandInterpreter.registerCommand("crosscountry", CMD_CROSSCOUNTRY, this);
 }
 
 void CrossCountry::run() {

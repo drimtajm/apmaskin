@@ -11,12 +11,14 @@
 #include <pthread.h>
 #include "CommandServer.h"
 #include "Runnable.h"
+#include "CommandInterpreterModule.h"
+
 class EventGenerator;
 class Thread;
 
 class CrossCountry : public CommandServer, Runnable{
 public:
-	CrossCountry(EventGenerator& irSensor);
+	CrossCountry(CommandInterpreterModule& ci, EventGenerator& irSensor);
 	virtual ~CrossCountry();
 	virtual void executeCommand(int cmdID, std::vector<int> arguments);
 	virtual void registerCommands();
@@ -31,6 +33,7 @@ private:
 		CMD_CROSSCOUNTRY
 	} CrossCountryCommand;
 
+	CommandInterpreterModule& commandInterpreter;
 	EventGenerator& irSensor;
 	bool running;
 	pthread_mutex_t mutex; //lock for CrossCountry::running

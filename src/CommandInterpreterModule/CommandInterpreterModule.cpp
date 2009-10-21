@@ -9,12 +9,6 @@
 using namespace std;
 using namespace boost::spirit;
 
-/*****************
- * class members *
- *****************/
-
-CommandInterpreterModule* CommandInterpreterModule::ciInstance = NULL;
-
 /*********************
  * Private functions *
  *********************/
@@ -35,15 +29,15 @@ CommandInterpreterModule::~CommandInterpreterModule() {
 	}
 }
 
-CommandInterpreterModule* CommandInterpreterModule::getInstance() {
-	return getInstance(std::cin, std::cout);
-}
-CommandInterpreterModule* CommandInterpreterModule::getInstance(
-		std::istream& input, std::ostream& output) {
-	if (ciInstance == NULL)
-		ciInstance = new CommandInterpreterModule(input, output);
-	return ciInstance;
-}
+//CommandInterpreterModule* CommandInterpreterModule::getInstance() {
+//	return getInstance(std::cin, std::cout);
+//}
+//CommandInterpreterModule* CommandInterpreterModule::getInstance(
+//		std::istream& input, std::ostream& output) {
+//	if (ciInstance == NULL)
+//		ciInstance = new CommandInterpreterModule(input, output);
+//	return ciInstance;
+//}
 
 void CommandInterpreterModule::registerCommand(string commandString, int cmdID,
 		CommandServer * const cmdServer) {
@@ -70,9 +64,8 @@ void CommandInterpreterModule::executeCommand(int cmdID,
 }
 
 void CommandInterpreterModule::registerCommands() {
-	CommandInterpreterModule *ci = CommandInterpreterModule::getInstance();
-	ci->registerCommand("help", CMD_HELP, this);
-	ci->registerCommand("exit", CMD_EXIT, this);
+	registerCommand("help", CMD_HELP, this);
+	registerCommand("exit", CMD_EXIT, this);
 }
 
 void CommandInterpreterModule::start() {
@@ -102,11 +95,6 @@ void CommandInterpreterModule::start() {
 			output << "> ";
 		}
 	}
-}
-
-void CommandInterpreterModule::destroy() {
-	delete ciInstance;
-	ciInstance = NULL;
 }
 
 /**

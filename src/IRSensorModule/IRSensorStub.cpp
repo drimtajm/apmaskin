@@ -16,8 +16,8 @@
 
 using namespace std;
 
-IRSensor::IRSensor() :
-	readerThread(NULL), reader(NULL) {
+IRSensor::IRSensor(CommandInterpreterModule& ci) :
+	commandInterpreter(ci), readerThread(NULL), reader(NULL) {
 }
 
 IRSensor::~IRSensor() {
@@ -32,8 +32,7 @@ void IRSensor::executeCommand(int cmdID, std::vector<int> arguments) {
 }
 
 void IRSensor::registerCommands() {
-	CommandInterpreterModule *ci = CommandInterpreterModule::getInstance();
-	ci->registerCommand("getirping", CMD_GETIRDATA, this);
+	commandInterpreter.registerCommand("getirping", CMD_GETIRDATA, this);
 }
 
 int IRSensor::cmdGetIRPing(const std::vector<int>& arguments) {
