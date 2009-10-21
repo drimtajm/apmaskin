@@ -18,7 +18,7 @@ class Thread;
 
 class CrossCountry : public CommandServer, Runnable{
 public:
-	CrossCountry(CommandInterpreterModule& ci, EventGenerator& irSensor);
+	CrossCountry(CommandInterpreter& ci, EventGenerator& irSensor);
 	virtual ~CrossCountry();
 	virtual void executeCommand(int cmdID, std::vector<int> arguments);
 	virtual void registerCommands();
@@ -33,7 +33,7 @@ private:
 		CMD_CROSSCOUNTRY
 	} CrossCountryCommand;
 
-	CommandInterpreterModule& commandInterpreter;
+	CommandInterpreter& commandInterpreter;
 	EventGenerator& irSensor;
 	bool running;
 	pthread_mutex_t mutex; //lock for CrossCountry::running

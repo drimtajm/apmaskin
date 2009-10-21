@@ -17,7 +17,7 @@
 
 class IRSensor: public EventGenerator, CommandServer {
 public:
-	IRSensor(CommandInterpreterModule& commandInterpreter);
+	IRSensor(CommandInterpreter& commandInterpreter);
 	void startSendEvents(BoundedBuffer<Event>& eventQueue);
 	void stopSendEvents();
 	virtual void executeCommand(int cmdID, std::vector<int> arguments);
@@ -34,7 +34,7 @@ private:
 	IRSensor(const IRSensor&);
 	IRSensor& operator=(const IRSensor&);
 	int cmdGetIRPing(const std::vector<int>& arguments);
-	CommandInterpreterModule& commandInterpreter;
+	CommandInterpreter& commandInterpreter;
 	Thread * readerThread;
 	IRSensorReader * reader;
 

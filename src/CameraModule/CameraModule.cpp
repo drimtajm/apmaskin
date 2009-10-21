@@ -2,7 +2,7 @@
 #include "CameraModule.h"
 #include "CommandInterpreterModule.h"
 
-CameraModule::CameraModule(CommandInterpreterModule& ci) :
+CameraModule::CameraModule(CommandInterpreter& ci) :
 	commandInterpreter(ci), sendQueue(NULL) {
 }
 

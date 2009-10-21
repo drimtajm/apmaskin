@@ -12,7 +12,7 @@
 
 class CameraModule : public EventGenerator, CommandServer {
 private:
-	CommandInterpreterModule& commandInterpreter;
+	CommandInterpreter& commandInterpreter;
 	std::list<EventListener*> positionErrorListeners;
 	std::list<EventListener*> intersectionFoundListeners;
 	std::list<EventListener*> numberFoundListeners;
@@ -23,7 +23,7 @@ public:
 		CMD_CALIBRATE
 	} CameraCommand;
 
-	CameraModule(CommandInterpreterModule& commandInterpreter);
+	CameraModule(CommandInterpreter& commandInterpreter);
 	void startSendEvents(BoundedBuffer<Event>& eventQueue);							//EventGenerator
 	void stopSendEvents() {};												//EventGenerator
 	void executeCommand(int cmdID, std::vector<int> arguments); 			//CommandServer

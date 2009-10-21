@@ -13,7 +13,7 @@ using namespace boost::spirit;
  * Private functions *
  *********************/
 
-CommandInterpreterModule::CommandInterpreterModule(std::istream& _input,
+CommandInterpreterImpl::CommandInterpreterImpl(std::istream& _input,
 		std::ostream& _output) :
 	running(true), input(_input), output(_output) {
 }
@@ -22,31 +22,21 @@ CommandInterpreterModule::CommandInterpreterModule(std::istream& _input,
  * Public functions *
  ********************/
 
-CommandInterpreterModule::~CommandInterpreterModule() {
+CommandInterpreterImpl::~CommandInterpreterImpl() {
 	for (CommandMap::iterator it = registeredCommands.begin(); it
 			!= registeredCommands.end(); ++it) {
 		delete it->second;
 	}
 }
 
-//CommandInterpreterModule* CommandInterpreterModule::getInstance() {
-//	return getInstance(std::cin, std::cout);
-//}
-//CommandInterpreterModule* CommandInterpreterModule::getInstance(
-//		std::istream& input, std::ostream& output) {
-//	if (ciInstance == NULL)
-//		ciInstance = new CommandInterpreterModule(input, output);
-//	return ciInstance;
-//}
-
-void CommandInterpreterModule::registerCommand(string commandString, int cmdID,
+void CommandInterpreterImpl::registerCommand(string commandString, int cmdID,
 		CommandServer * const cmdServer) {
 	CommandData *cmdData = new CommandData(cmdID, cmdServer);
 	registeredCommands.insert(pair<string, CommandData*> (commandString,
 			cmdData));
 }
 
-void CommandInterpreterModule::executeCommand(int cmdID,
+void CommandInterpreterImpl::executeCommand(int cmdID,
 		std::vector<int> arguments) {
 	switch (cmdID) {
 	case CMD_HELP:
@@ -63,12 +53,12 @@ void CommandInterpreterModule::executeCommand(int cmdID,
 	}
 }
 
-void CommandInterpreterModule::registerCommands() {
+void CommandInterpreterImpl::registerCommands() {
 	registerCommand("help", CMD_HELP, this);
 	registerCommand("exit", CMD_EXIT, this);
 }
 
-void CommandInterpreterModule::start() {
+void CommandInterpreterImpl::start() {
 	string inputLine;
 	CommandMap::iterator cmdIterator;
 	CommandData *cmdData;
@@ -101,7 +91,7 @@ void CommandInterpreterModule::start() {
  * Assume [ ]cmd[ ][arg1[ ][,[ ]arg2]]
  * [ ] is none or several whitespace
  */
-void CommandInterpreterModule::extractCommandAndParameters(string inputLine,
+void CommandInterpreterImpl::extractCommandAndParameters(string inputLine,
 		string &command, vector<int> &args) {
 	args.clear();
 	CommandParser parser(command, args);

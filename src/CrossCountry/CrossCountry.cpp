@@ -17,7 +17,7 @@
 using std::cout;
 using std::endl;
 
-CrossCountry::CrossCountry(CommandInterpreterModule& ci, EventGenerator& irSensor) :
+CrossCountry::CrossCountry(CommandInterpreter& ci, EventGenerator& irSensor) :
 	commandInterpreter(ci), irSensor(irSensor), running(false) {
 	pthread_mutex_init(&mutex, NULL);
 }

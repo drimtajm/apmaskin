@@ -8,7 +8,7 @@
 using namespace std;
 
 int main(int argc, char *argv[]) {
-	CommandInterpreterModule commandInterpreter;
+	CommandInterpreterImpl commandInterpreter;
 	CameraModule camera(commandInterpreter);
 	IRSensor irSensor(commandInterpreter);
 
@@ -20,7 +20,6 @@ int main(int argc, char *argv[]) {
 	irSensor.registerCommands();
 	steering.registerCommands();
 	commandInterpreter.start();
-	CommandInterpreterModule::destroy();
 
 	return 0;
 }

@@ -16,7 +16,7 @@
 
 using namespace std;
 
-IRSensor::IRSensor(CommandInterpreterModule& ci) :
+IRSensor::IRSensor(CommandInterpreter& ci) :
 	commandInterpreter(ci), readerThread(NULL), reader(NULL) {
 }
 
