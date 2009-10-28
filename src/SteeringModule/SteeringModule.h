@@ -9,19 +9,20 @@
 #define STEERINGMODULE_H_
 #include "CommandServer.h"
 #include "CommandInterpreter.h"
-#include "../hardware/SerialPort.h"
+#include "MotorController.h"
 
 class SteeringModule : public CommandServer {
 public:
-	SteeringModule(CommandInterpreter& commandInterpreter, SerialPort& saberTooth);
+	SteeringModule(CommandInterpreter& commandInterpreter, MotorController& motorController);
 	void executeCommand(int cmdID, std::vector<int> arguments);
 	void registerCommands();
 private:
-	CommandInterpreter &commandInterpreter;
-	SerialPort& saberTooth;
+	CommandInterpreter& commandInterpreter;
+	MotorController& motorController;
 
 	typedef enum {
-		CMD_SETSPEED
+		CMD_SETSPEED,
+		CMD_SETTURNRATE
 	} SteeringCommand;
 
 };

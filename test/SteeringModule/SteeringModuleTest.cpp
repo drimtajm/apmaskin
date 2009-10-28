@@ -6,56 +6,56 @@
  */
 
 #include "gtest.h"
-#include "../../src/SteeringModule/SteeringModule.h"
+#include "SteeringModule.h"
 #include "CommandInterpreterModule.h"
-#include <string>
-#include "../../src/hardware/SerialPort.h"
+#include "MotorController.h"
+#include "MotorControllerStub.h"
+#include "../CommandInterpreterModule/CommandInterpreterStub.h"
+
 using namespace std;
 
-class CommandInterpreterStub : public CommandInterpreter {
-public:
-	CommandInterpreterStub() : registeredCommandId(-1) { }
-
-	string registeredCommand;
-	int registeredCommandId;
-
-	void registerCommand(std::string commandString, int cmdID, CommandServer * const cmdServer) {
-		registeredCommand = commandString;
-		registeredCommandId = cmdID;
-	}
-};
-
-class SerialPortStub : public SerialPort {
-public:
-	SerialPortStub() : writtenBytes(0) {}
-	void write(char data, unsigned int numberOfBytes) {
-		writtenBytes += numberOfBytes;
-	}
-	int writtenBytes;
-};
 
 class SteeringModuleTest : public testing::Test  {
 protected:
 	SteeringModuleTest()  {}
 	CommandInterpreterStub ci;
-	SerialPortStub serialPort;
+	MotorControllerStub motorController;
 };
 
 TEST_F (SteeringModuleTest, registerSetspeedCommandInCommandInterpreter) {
-	SteeringModule steeringModule(ci, serialPort);
+	SteeringModule steeringModule(ci, motorController);
 	steeringModule.registerCommands();
-	ASSERT_EQ("setspeed", ci.registeredCommand);
+	const int SETSPEED_ID = ci.idForRegisteredCommand("setspeed");
+	ASSERT_NE(-1, SETSPEED_ID);
 }
 
-TEST_F(SteeringModuleTest, setspeedShouldWriteAByteToSabertooth) {
-	SteeringModule steeringModule(ci, serialPort);
+TEST_F (SteeringModuleTest, registerSetTurnRateCommandInCommandInterpreter) {
+	SteeringModule steeringModule(ci, motorController);
 	steeringModule.registerCommands();
-	ASSERT_EQ("setspeed", ci.registeredCommand);
-	const int SETSTEERING_ID = ci.registeredCommandId;
+	const int SETTURNRATE_ID = ci.idForRegisteredCommand("setturnrate");
+	ASSERT_NE(-1, SETTURNRATE_ID);
+
+}
+
+TEST_F(SteeringModuleTest, setSpeedShouldDelegateToMotorController) {
+	SteeringModule steeringModule(ci, motorController);
+	steeringModule.registerCommands();
+	const int SETSPEED_ID = ci.idForRegisteredCommand("setspeed");
 	vector<int> arguments;
-	arguments.push_back(0);
-	steeringModule.executeCommand(SETSTEERING_ID, arguments);
-	ASSERT_GT(serialPort.writtenBytes, 0);
+	arguments.push_back(5);
+	steeringModule.executeCommand(SETSPEED_ID, arguments);
+	ASSERT_TRUE(motorController.setSpeedIsCalled);
+	ASSERT_EQ(5, motorController.speed);
 }
 
+TEST_F(SteeringModuleTest, setTurnRateShouldDelegateToMotorController) {
+	SteeringModule steeringModule(ci, motorController);
+	steeringModule.registerCommands();
+	const int SETTURNRATE_ID = ci.idForRegisteredCommand("setturnrate");
+	vector<int> arguments;
+	arguments.push_back(10);
+	steeringModule.executeCommand(SETTURNRATE_ID, arguments);
+	ASSERT_TRUE(motorController.setTurnRateIsCalled);
+	ASSERT_EQ(10, motorController.turnRate);
+}
 
