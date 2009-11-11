@@ -5,7 +5,7 @@
  *      Author: bege
  */
 
-#include "test/gtest.h"
+#include "gtest.h"
 #include <string>
 #include <vector>
 #include <iostream>

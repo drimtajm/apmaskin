@@ -1,0 +1,3 @@
+lib modules : 
+    [ glob-tree *.cpp : IRSensorStub.cpp main.cpp ] ;
+

@@ -1,0 +1,40 @@
+# Return a list of include parameters
+# with directories matching given pattern.
+rule includes ( pattern * ) 
+{
+	local dirs ;
+	for local dir in [ glob-tree $(pattern) ]
+	{
+		if ! [ CHECK_IF_FILE $(dir) ] 
+		{
+			dirs += <include>$(dir) ;
+		}
+	}
+	return $(dirs) ;
+}
+
+project apmaskin : requirements 
+	<include>src/common
+	<include>src/interfaces
+	<include>src/CommandInterpreterModule
+	<include>src/CameraModule
+	<include>src/IRSensorModule
+	<include>src/SteeringModule
+	<include>lib
+#	[ includes include ]
+	<find-shared-library>rt
+	<find-shared-library>pthread
+	:
+	:
+	build-dir bin
+	;
+
+exe apmaskin : 
+    src/main.cpp
+    src//modules/<link>static
+    : : 
+    <toolset>gcc-arm
+    <toolset>gcc
+    ;
+
+alias tests : test//test ;

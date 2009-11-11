@@ -1,0 +1,8 @@
+exe test : 
+    [ glob *.cc ]
+    [ glob-tree *.cpp ] 
+    ../src//modules/<link>static
+    : 
+    <include>.
+    ;  
+

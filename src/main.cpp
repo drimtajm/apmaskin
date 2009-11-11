@@ -13,12 +13,12 @@ int main(int argc, char *argv[]) {
 	IRSensor irSensor(commandInterpreter);
 
 	CrossCountry crossCountry(commandInterpreter, irSensor);
-	SteeringModule steering;
+	//SteeringModule steering;
 	crossCountry.registerCommands();
 	commandInterpreter.registerCommands();
 	camera.registerCommands();
 	irSensor.registerCommands();
-	steering.registerCommands();
+	//steering.registerCommands();
 	commandInterpreter.start();
 
 	return 0;
