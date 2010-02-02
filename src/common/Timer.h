@@ -12,6 +12,7 @@
 #include <signal.h>
 #include "TimeSpec.h"
 
+//typedef long __suseconds_t;
 typedef void (*handlerFunction)(int sig, siginfo_t *si, void *uc);
 
 class Timer {
@@ -38,7 +39,7 @@ public:
 private:
 	timer_t timer;
 	TimeSpec _period;
-	__suseconds_t periodNSec;
+	//	__suseconds_t periodNSec;
 	void * sigValue;
 };
 #endif /* TIMER_H_ */

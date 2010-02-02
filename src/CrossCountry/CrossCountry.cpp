@@ -13,6 +13,7 @@
 #include "EventGenerator.h"
 #include "IREvent.h"
 #include "Thread.h"
+#include "Log2File.h"
 
 using std::cout;
 using std::endl;
@@ -78,7 +79,7 @@ void CrossCountry::run() {
 		event = eventQueue.receive();
 		if (event->getEventType() == Event::INFRARED_DISTANCE_EVENT) {
 			const IREvent& e = *static_cast<const IREvent*>( event);
-			cout << e.getValue() << endl;
+			LOG(log::DEBUG) << e.getValue();
 		}
 		delete event;
 	}

@@ -5,10 +5,11 @@
 #include "CrossCountry/CrossCountry.h"
 #include "SteeringModule/SteeringModule.h"
 #include "MotorControllerImpl.h"
+#include "Log2File.h"
 
-using namespace std;
 
 int main(int argc, char *argv[]) {
+        log::Output2FILE::Init("apmaskin.log");
 	CommandInterpreterImpl commandInterpreter;
 	CameraModule camera(commandInterpreter);
 	IRSensor irSensor(commandInterpreter);
@@ -22,6 +23,6 @@ int main(int argc, char *argv[]) {
 	irSensor.registerCommands();
 	steering.registerCommands();
 	commandInterpreter.start();
-
+	log::Output2FILE::Close();
 	return 0;
 }

@@ -33,7 +33,7 @@ exe apmaskin :
     src/main.cpp
     src//modules/<link>static
     : : 
-    <toolset>gcc-arm
+#    <toolset>gcc-arm
     <toolset>gcc
     ;
 

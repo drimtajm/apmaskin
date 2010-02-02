@@ -11,7 +11,7 @@
 #include <ostream>
 #include <cassert>
 #include <stdexcept>
-using namespace std;
+
 /**
  * Wrapper class for the Posix timespec struct. It holds seconds and nanoseconds
  * and has a few arithmetic operators.
@@ -66,7 +66,7 @@ public:
 			diff -= 1;
 		}
 		if ((time.tv_sec ^ diff) & (rhs.time.tv_sec ^ diff) & LONG_MSB) { //underflow
-			throw runtime_error("Can't handle negative time");
+		        throw std::runtime_error("Can't handle negative time");
 		}
 		time.tv_sec = diff;
 		return *this;
