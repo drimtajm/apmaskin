@@ -1,5 +1,7 @@
 # Return a list of include parameters
 # with directories matching given pattern.
+using gcc : arm : arm-unknown-linux-gnu-g++ ;
+
 rule includes ( pattern * ) 
 {
 	local dirs ;
@@ -33,7 +35,7 @@ exe apmaskin :
     src/main.cpp
     src//modules/<link>static
     : : 
-#    <toolset>gcc-arm
+    <toolset>gcc-arm
     <toolset>gcc
     ;
 
