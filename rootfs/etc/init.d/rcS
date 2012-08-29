@@ -1,3 +1,6 @@
 #! /bin/sh
 
 /bin/mount -a
+modprobe btusb
+hciconfig hci up
+dbus-launch --config-file=/etc/dbus-1/session.conf
