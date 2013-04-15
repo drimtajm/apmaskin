@@ -12,7 +12,8 @@
 int main()
 {
   printf("Hello Raspberry!\n");
-  DEBUG_PRINTF("This is a 'VARIANT_DEBUG' build\n");
-//  DEBUG_PRINTF("This is a number: %d\n", 4);  // TODO Does not work, needs VA-list, google...
+  DEBUG_PRINTF("This is a debug build\n");
+  DEBUG_PRINTF("These are numbers: %d, %f, 0x%X\n", 4, 0.75, 0xFE);
+  DEBUG_PRINTF("Line number: %d\n", __LINE__);
   return 0;
 }
