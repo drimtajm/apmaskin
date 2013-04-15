@@ -2,15 +2,13 @@ SHELL=/bin/bash
 CC = g++
 RM = rm -rf
 MKDIR_P = mkdir -vp
-BUILD_OUTPUT_DIR = build
-OBJ_DIR = $(BUILD_OUTPUT_DIR)/obj
-BIN_DIR = $(BUILD_OUTPUT_DIR)/bin
 SRC_DIR = src
+DEBUG_BUILD_OUTPUT_DIR = debug
+RELEASE_BUILD_OUTPUT_DIR = release
 MV = mv -v
 
 APPLICATION = HelloRaspberry
 
-VPATH = $(OBJ_DIR):$(BIN_DIR):$(SRC_DIR)
 
 
 # Intended variants:
@@ -20,17 +18,22 @@ VPATH = $(OBJ_DIR):$(BIN_DIR):$(SRC_DIR)
 # 'VARIANT_INTEGRATION_TESTS' - Integration tests    x86
 #
 # TODO Make variant(s) for ARM - Currently only x86 variants
-# TODO Make the build output of different variants go into different directories
 
 ifdef VARIANT_DEBUG
 CFLAGS=-DVARIANT_DEBUG
+BUILD_OUTPUT_DIR = $(DEBUG_BUILD_OUTPUT_DIR)
 else
 CFLAGS=
+BUILD_OUTPUT_DIR = $(RELEASE_BUILD_OUTPUT_DIR)
 endif
+
+OBJ_DIR = $(BUILD_OUTPUT_DIR)/obj
+BIN_DIR = $(BUILD_OUTPUT_DIR)/bin
+
+VPATH = $(OBJ_DIR):$(BIN_DIR):$(SRC_DIR)
 
 OBJS = 
 OBJS += HelloRaspberry.o
-
 
 all: $(APPLICATION)
 
@@ -47,7 +50,7 @@ $(APPLICATION): $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(BIN_DIR) $(OBJS)
 	@$(MV) $@ $(OBJ_DIR)/
 
 clean:
-	$(RM) $(APPLICATION) $(BUILD_OUTPUT_DIR)
+	$(RM) $(APPLICATION) $(DEBUG_BUILD_OUTPUT_DIR) $(RELEASE_BUILD_OUTPUT_DIR)
 
 $(BUILD_OUTPUT_DIR) :
 	$(MKDIR_P) $@
