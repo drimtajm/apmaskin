@@ -1,5 +1,5 @@
 SHELL=/bin/bash
-CC = g++
+CC = arm-linux-gnueabi-g++
 RM = rm -rf
 MKDIR_P = mkdir -vp
 SRC_DIR = src
