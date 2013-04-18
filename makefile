@@ -16,8 +16,6 @@ APPLICATION = HelloRaspberry
 # 'VARIANT_RELEASE'           - Without prints       ARM
 # 'VARIANT_UNIT_TESTS'        - Unit tests           x86
 # 'VARIANT_INTEGRATION_TESTS' - Integration tests    x86
-#
-# TODO Make variant(s) for ARM - Currently only x86 variants
 
 ifdef VARIANT_DEBUG
 CFLAGS=-DVARIANT_DEBUG
@@ -30,10 +28,17 @@ endif
 OBJ_DIR = $(BUILD_OUTPUT_DIR)/obj
 BIN_DIR = $(BUILD_OUTPUT_DIR)/bin
 
-VPATH = $(OBJ_DIR):$(BIN_DIR):$(SRC_DIR)
+# Add 'BIN_DIR' to 'VPATH' for ability to find 'APPLICATION'
+# Also add 'SRC_DIR' because empirically I discovered that
+# 'VPATH' requires that 'SRC_DIR' itself is added as well as
+# any of its subdirs. Adding just the subdirs alone won't do.
+VPATH = $(BIN_DIR):$(SRC_DIR)
 
+# Initialize 'OBJS' and then let the modules add to it
 OBJS = 
-OBJS += HelloRaspberry.o
+
+# Add modules
+include $(SRC_DIR)/hello/hello.mk
 
 all: $(APPLICATION)
 
@@ -44,10 +49,10 @@ $(APPLICATION): $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(BIN_DIR) $(OBJS)
 	@touch $(BIN_DIR)/$(APPLICATION)  # ...otherwise $(BIN_DIR) will be younger than $(APPLICATION)
 
 # TODO Dependencies to header files will need to be handled more generally when we come up with more files 
-%.o : %.cpp variant.h 
+# see "http://scottmcpeak.com/autodepend/autodepend.html" and "http://www.gnu.org/software/make/manual/make.html#Automatic-Prerequisites"
+$(OBJ_DIR)/%.o : %.cpp variant.h 
 	@echo 'Compiling $<'
-	$(CC) $(CFLAGS) -c $<
-	@$(MV) $@ $(OBJ_DIR)/
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(APPLICATION) $(DEBUG_BUILD_OUTPUT_DIR) $(RELEASE_BUILD_OUTPUT_DIR)

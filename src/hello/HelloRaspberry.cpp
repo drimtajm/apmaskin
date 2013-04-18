@@ -7,7 +7,7 @@
 //============================================================================
 
 #include <stdio.h>
-#include "variant.h"
+#include "../variant.h"
 
 int main()
 {
