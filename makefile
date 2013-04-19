@@ -28,11 +28,10 @@ endif
 OBJ_DIR = $(BUILD_OUTPUT_DIR)/obj
 BIN_DIR = $(BUILD_OUTPUT_DIR)/bin
 
-# Add 'BIN_DIR' to 'VPATH' for ability to find 'APPLICATION'
-# Also add 'SRC_DIR' because empirically I discovered that
+# Add 'SRC_DIR' because empirically I discovered that
 # 'VPATH' requires that 'SRC_DIR' itself is added as well as
 # any of its subdirs. Adding just the subdirs alone won't do.
-VPATH = $(BIN_DIR):$(SRC_DIR)
+VPATH = $(OBJ_DIR):$(BIN_DIR):$(SRC_DIR)
 
 # Initialize 'OBJS' and then let the modules add to it
 OBJS = 
@@ -48,8 +47,6 @@ $(APPLICATION): $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(BIN_DIR) $(OBJS)
 	@$(MV) $(APPLICATION) $(BIN_DIR)/
 	@touch $(BIN_DIR)/$(APPLICATION)  # ...otherwise $(BIN_DIR) will be younger than $(APPLICATION)
 
-.PRECIOUS: $(OBJ_DIR)/HelloRaspberry.d
-	
 $(OBJ_DIR)/%.d: %.cpp
 	@echo 'Generating deps for "$<" because of "$?"'
 	@set -e; rm -f $@; \
@@ -63,9 +60,9 @@ ifneq ($(MAKECMDGOALS),clean)
 -include $(OBJ_DIR)/HelloRaspberry.d
 endif
 
-$(OBJ_DIR)/%.o : %.cpp $(OBJ_DIR)/%.d
+%.o : %.cpp
 	@echo 'Compiling "$<" because of "$?"'
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $(OBJ_DIR)/$@
 
 clean:
 	$(RM) $(APPLICATION) $(DEBUG_BUILD_OUTPUT_DIR) $(RELEASE_BUILD_OUTPUT_DIR)
