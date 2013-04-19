@@ -40,6 +40,11 @@ DEPS =
 # Add modules
 include $(SRC_DIR)/hello/hello.mk
 
+# Add dependency files
+ifneq ($(MAKECMDGOALS),clean)
+-include $(DEPS)
+endif
+
 all: $(APPLICATION)
 
 $(APPLICATION): $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(BIN_DIR) $(OBJS)
@@ -55,17 +60,13 @@ $(OBJ_DIR)/%.d: %.cpp
 	$(CC) -MM $(CPPFLAGS) $< > $@.tmp; \
 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.tmp > $@; \
 	rm -f $@.tmp
-	
-ifneq ($(MAKECMDGOALS),clean)
--include $(DEPS)
-endif
 
 %.o : %.cpp
 	@echo 'Compiling "$<" because of "$?"'
 	$(CC) $(CFLAGS) -c $< -o $(OBJ_DIR)/$@
 
 clean:
-	$(RM) $(APPLICATION) $(DEBUG_BUILD_OUTPUT_DIR) $(RELEASE_BUILD_OUTPUT_DIR)
+	$(RM) $(DEBUG_BUILD_OUTPUT_DIR) $(RELEASE_BUILD_OUTPUT_DIR)
 
 $(BUILD_OUTPUT_DIR) :
 	$(MKDIR_P) $@

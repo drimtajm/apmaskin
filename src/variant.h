@@ -15,5 +15,4 @@
 #define DEBUG_PRINTF(...)
 #endif
 
-
 #endif /* VARIANT_H_ */
