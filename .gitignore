@@ -1,5 +1,5 @@
 *~
 *.swp
 
-HelloRaspberry
-*.o
+debug
+release

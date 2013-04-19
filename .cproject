@@ -131,11 +131,13 @@
 		<configuration configurationName="Debug">
 			<resource resourceType="PROJECT" workspacePath="/HelloRaspberry"/>
 		</configuration>
-		<configuration configurationName="linux_x86">
-			<resource resourceType="PROJECT" workspacePath="/Apmaskin"/>
-		</configuration>
+		<configuration configurationName="debug"/>
+		<configuration configurationName="release"/>
 		<configuration configurationName="linux_debug_x86">
 			<resource resourceType="PROJECT" workspacePath="/HelloRaspberry"/>
+		</configuration>
+		<configuration configurationName="linux_x86">
+			<resource resourceType="PROJECT" workspacePath="/Apmaskin"/>
 		</configuration>
 	</storageModule>
 </cproject>

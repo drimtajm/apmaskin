@@ -48,10 +48,23 @@ $(APPLICATION): $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(BIN_DIR) $(OBJS)
 	@$(MV) $(APPLICATION) $(BIN_DIR)/
 	@touch $(BIN_DIR)/$(APPLICATION)  # ...otherwise $(BIN_DIR) will be younger than $(APPLICATION)
 
-# TODO Dependencies to header files will need to be handled more generally when we come up with more files 
-# see "http://scottmcpeak.com/autodepend/autodepend.html" and "http://www.gnu.org/software/make/manual/make.html#Automatic-Prerequisites"
-$(OBJ_DIR)/%.o : %.cpp variant.h 
-	@echo 'Compiling $<'
+.PRECIOUS: $(OBJ_DIR)/HelloRaspberry.d
+	
+$(OBJ_DIR)/%.d: %.cpp
+	@echo 'Generating deps for "$<" because of "$?"'
+	@set -e; rm -f $@; \
+	$(MKDIR_P) $(OBJ_DIR)
+	$(CC) -MM $(CPPFLAGS) $< > $@.tmp; \
+	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.tmp > $@; \
+	rm -f $@.tmp
+#	$(MV) $@ $(OBJ_DIR)/  ### If not using $(OBJ_DIR) prefix for %.d and $(OBJ_DIR) in 'VPATH' - Does not work.
+	
+ifneq ($(MAKECMDGOALS),clean)
+-include $(OBJ_DIR)/HelloRaspberry.d
+endif
+
+$(OBJ_DIR)/%.o : %.cpp $(OBJ_DIR)/%.d
+	@echo 'Compiling "$<" because of "$?"'
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
