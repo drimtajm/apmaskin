@@ -33,8 +33,9 @@ BIN_DIR = $(BUILD_OUTPUT_DIR)/bin
 # any of its subdirs. Adding just the subdirs alone won't do.
 VPATH = $(OBJ_DIR):$(BIN_DIR):$(SRC_DIR)
 
-# Initialize 'OBJS' and then let the modules add to it
+# Initialize 'OBJS' and 'DEPS' and then let the modules add to them
 OBJS = 
+DEPS =
 
 # Add modules
 include $(SRC_DIR)/hello/hello.mk
@@ -54,10 +55,9 @@ $(OBJ_DIR)/%.d: %.cpp
 	$(CC) -MM $(CPPFLAGS) $< > $@.tmp; \
 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.tmp > $@; \
 	rm -f $@.tmp
-#	$(MV) $@ $(OBJ_DIR)/  ### If not using $(OBJ_DIR) prefix for %.d and $(OBJ_DIR) in 'VPATH' - Does not work.
 	
 ifneq ($(MAKECMDGOALS),clean)
--include $(OBJ_DIR)/HelloRaspberry.d
+-include $(DEPS)
 endif
 
 %.o : %.cpp
