@@ -21,13 +21,13 @@ GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
 $(OBJ_DIR)/gtest-all.o : $(GTEST_SRCS_)
 	$(MKDIR_P) $(OBJ_DIR)
 	@echo 'Compiling "$@"'
-	$(CC) $(CPPFLAGS) -I$(GTEST_DIR) $(CFLAGS) -c \
+	$(CC) -I$(GTEST_DIR) $(CFLAGS) -c \
             $(GTEST_DIR)/src/gtest-all.cc -o $@
 
 $(OBJ_DIR)/gtest_main.o : $(GTEST_SRCS_)
 	$(MKDIR_P) $(OBJ_DIR)
 	@echo 'Compiling "$@"'
-	$(CC) $(CPPFLAGS) -I$(GTEST_DIR) $(CFLAGS) -c \
+	$(CC) -I$(GTEST_DIR) $(CFLAGS) -c \
             $(GTEST_DIR)/src/gtest_main.cc -o $@
 
 $(OBJ_DIR)/gtest_main.a : $(OBJ_DIR)/gtest-all.o $(OBJ_DIR)/gtest_main.o
