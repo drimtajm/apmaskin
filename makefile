@@ -45,6 +45,7 @@ DEPS =
 # Add modules
 include $(SRC_DIR)/hello/hello.mk
 include $(SRC_DIR)/led/led.mk
+include $(SRC_DIR)/motor/motor.mk
 
 # Unit test makefile must be included after module makefiles or
 # unit test object files will be left out
