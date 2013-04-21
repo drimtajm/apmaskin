@@ -32,7 +32,7 @@ BIN_DIR  = $(BUILD_OUTPUT_DIR)/bin
 # Add 'SRC_DIR' because empirically I discovered that
 # 'VPATH' requires that 'SRC_DIR' itself is added as well as
 # any of its subdirs. Adding just the subdirs alone won't do.
-VPATH = $(OBJ_DIR):$(DEPS_DIR):$(BIN_DIR):$(SRC_DIR)
+VPATH = $(OBJ_DIR):$(BIN_DIR):$(SRC_DIR)
 
 # Initialize 'OBJS' and 'DEPS' and then let the modules add to them
 OBJS = 
