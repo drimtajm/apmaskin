@@ -1,7 +1,7 @@
 #ifndef LED_H_
 #define LED_H_
 
-class led
+class Led
 {
 public:
   static void turnOnLed(void);

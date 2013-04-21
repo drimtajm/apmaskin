@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "led.h"
 
-void led::turnOnLed(void)
+void Led::turnOnLed(void)
 {
-  printf("LED turned on!\n");
+  printf("'Led::turnOnLed' not implemented yet!\n");
 }
 
-void led::turnOffLed(void)
+void Led::turnOffLed(void)
 {
-  printf("LED turned off!\n");
+  printf("'Led::turnOffLed' not implemented yet!\n");
 }

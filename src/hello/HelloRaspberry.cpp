@@ -9,7 +9,7 @@ int main()
   DEBUG_PRINTF("These are numbers: %d, %f, 0x%X\n", 4, 0.75, 0xFE);
   DEBUG_PRINTF("Line number: %d\n", __LINE__);
   DEBUG_PRINTF("Built at: %s, %s\n", __TIME__, __DATE__);
-  led::turnOnLed();
-  led::turnOffLed();
+  Led::turnOnLed();
+  Led::turnOffLed();
   return 0;
 }
