@@ -5,11 +5,12 @@ MKDIR_P = mkdir -vp
 SRC_DIR = src
 DEBUG_BUILD_OUTPUT_DIR = debug
 RELEASE_BUILD_OUTPUT_DIR = release
+UNIT_TEST_BUILD_OUTPUT_DIR = unit_tests
+GTEST_DIR = gtest
 MV = mv -v
 
 APPLICATION = HelloRaspberry
 CFLAGS = -Wall
-
 
 # Intended variants:
 # 'VARIANT_DEBUG'             - With debug prints    ARM
@@ -22,6 +23,10 @@ BUILD_OUTPUT_DIR = $(DEBUG_BUILD_OUTPUT_DIR)
 endif
 ifeq ($(VARIANT), release)
 BUILD_OUTPUT_DIR = $(RELEASE_BUILD_OUTPUT_DIR)
+endif
+ifeq ($(VARIANT), unit_tests)
+CC = g++
+BUILD_OUTPUT_DIR = $(UNIT_TEST_BUILD_OUTPUT_DIR)
 endif
 
 OBJ_DIR  = $(BUILD_OUTPUT_DIR)/obj
@@ -39,13 +44,20 @@ DEPS =
 
 # Add modules
 include $(SRC_DIR)/hello/hello.mk
+include $(SRC_DIR)/led/led.mk
+
+# Unit test makefile must be included after module makefiles or
+# unit test object files will be left out
+include $(GTEST_DIR)/gtest.mk
 
 # Add dependency files
 ifneq ($(MAKECMDGOALS),clean)
 -include $(DEPS)
 endif
 
-all: $(APPLICATION)
+ifneq ($(VARIANT), unit_tests)
+all : $(APPLICATION)
+endif
 
 $(APPLICATION): $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(BIN_DIR) $(OBJS)
 	@echo 'Linking $@'
@@ -65,9 +77,6 @@ $(DEPS_DIR)/%.d: %.cpp
 	@echo 'Compiling "$<" because of "$?"'
 	$(CC) $(CFLAGS) -c $< -o $(OBJ_DIR)/$@
 
-clean:
-	$(RM) $(DEBUG_BUILD_OUTPUT_DIR) $(RELEASE_BUILD_OUTPUT_DIR)
-
 $(BUILD_OUTPUT_DIR) :
 	$(MKDIR_P) $@
 
@@ -79,3 +88,6 @@ $(DEPS_DIR) :
 
 $(BIN_DIR) :
 	$(MKDIR_P) $@
+
+clean:
+	$(RM) $(DEBUG_BUILD_OUTPUT_DIR) $(RELEASE_BUILD_OUTPUT_DIR) $(UNIT_TEST_BUILD_OUTPUT_DIR)
