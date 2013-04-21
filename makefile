@@ -42,7 +42,7 @@ VPATH = $(OBJ_DIR):$(BIN_DIR):$(SRC_DIR)
 OBJS = 
 DEPS =
 
-# Add modules
+# Include modules
 include $(SRC_DIR)/hello/hello.mk
 include $(SRC_DIR)/led/led.mk
 include $(SRC_DIR)/motor/motor.mk
@@ -51,7 +51,7 @@ include $(SRC_DIR)/motor/motor.mk
 # unit test object files will be left out
 include $(GTEST_DIR)/gtest.mk
 
-# Add dependency files
+# Include dependency files
 ifneq ($(MAKECMDGOALS),clean)
 -include $(DEPS)
 endif
