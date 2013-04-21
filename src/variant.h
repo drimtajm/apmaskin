@@ -1,10 +1,3 @@
-/*
- * variant.h
- *
- *  Created on: Apr 14, 2013
- *      Author: johan
- */
-
 #ifndef VARIANT_H_
 #define VARIANT_H_
 

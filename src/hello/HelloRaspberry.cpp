@@ -1,11 +1,3 @@
-//============================================================================
-// Name        : HelloRaspberry.cpp
-// Author      : Johan
-// Version     :
-// Copyright   : copy-me!
-// Description : Hello World in C++, Ansi-style
-//============================================================================
-
 #include <stdio.h>
 #include "../variant.h"
 
