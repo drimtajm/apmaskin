@@ -16,11 +16,11 @@ APPLICATION = HelloRaspberry
 # 'VARIANT_RELEASE'           - Without prints       ARM
 # 'VARIANT_UNIT_TESTS'        - Unit tests           x86
 # 'VARIANT_INTEGRATION_TESTS' - Integration tests    x86
-
-ifdef VARIANT_DEBUG
+ifeq ($(VARIANT), debug)
 CFLAGS=-DVARIANT_DEBUG
 BUILD_OUTPUT_DIR = $(DEBUG_BUILD_OUTPUT_DIR)
-else
+endif
+ifeq ($(VARIANT), release)
 CFLAGS=
 BUILD_OUTPUT_DIR = $(RELEASE_BUILD_OUTPUT_DIR)
 endif
