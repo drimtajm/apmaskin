@@ -25,13 +25,14 @@ CFLAGS=
 BUILD_OUTPUT_DIR = $(RELEASE_BUILD_OUTPUT_DIR)
 endif
 
-OBJ_DIR = $(BUILD_OUTPUT_DIR)/obj
-BIN_DIR = $(BUILD_OUTPUT_DIR)/bin
+OBJ_DIR  = $(BUILD_OUTPUT_DIR)/obj
+DEPS_DIR = $(BUILD_OUTPUT_DIR)/deps
+BIN_DIR  = $(BUILD_OUTPUT_DIR)/bin
 
 # Add 'SRC_DIR' because empirically I discovered that
 # 'VPATH' requires that 'SRC_DIR' itself is added as well as
 # any of its subdirs. Adding just the subdirs alone won't do.
-VPATH = $(OBJ_DIR):$(BIN_DIR):$(SRC_DIR)
+VPATH = $(OBJ_DIR):$(DEPS_DIR):$(BIN_DIR):$(SRC_DIR)
 
 # Initialize 'OBJS' and 'DEPS' and then let the modules add to them
 OBJS = 
@@ -53,10 +54,10 @@ $(APPLICATION): $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(BIN_DIR) $(OBJS)
 	@$(MV) $(APPLICATION) $(BIN_DIR)/
 	@touch $(BIN_DIR)/$(APPLICATION)  # ...otherwise $(BIN_DIR) will be younger than $(APPLICATION)
 
-$(OBJ_DIR)/%.d: %.cpp
+$(DEPS_DIR)/%.d: %.cpp
 	@echo 'Generating deps for "$<" because of "$?"'
 	@set -e; rm -f $@; \
-	$(MKDIR_P) $(OBJ_DIR)
+	$(MKDIR_P) $(DEPS_DIR)
 	$(CC) -MM $(CPPFLAGS) $< > $@.tmp; \
 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.tmp > $@; \
 	rm -f $@.tmp
@@ -72,6 +73,9 @@ $(BUILD_OUTPUT_DIR) :
 	$(MKDIR_P) $@
 
 $(OBJ_DIR) :
+	$(MKDIR_P) $@
+
+$(DEPS_DIR) :
 	$(MKDIR_P) $@
 
 $(BIN_DIR) :
