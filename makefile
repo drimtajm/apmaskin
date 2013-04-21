@@ -58,7 +58,7 @@ $(DEPS_DIR)/%.d: %.cpp
 	@echo 'Generating deps for "$<" because of "$?"'
 	@set -e; rm -f $@; \
 	$(MKDIR_P) $(DEPS_DIR)
-	$(CC) -MM $(CPPFLAGS) $< > $@.tmp; \
+	$(CC) -MM $(CFLAGS) $< > $@.tmp; \
 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.tmp > $@; \
 	rm -f $@.tmp
 
