@@ -8,7 +8,7 @@ RELEASE_BUILD_OUTPUT_DIR = release
 MV = mv -v
 
 APPLICATION = HelloRaspberry
-
+CFLAGS = -Wall
 
 
 # Intended variants:
@@ -17,11 +17,10 @@ APPLICATION = HelloRaspberry
 # 'VARIANT_UNIT_TESTS'        - Unit tests           x86
 # 'VARIANT_INTEGRATION_TESTS' - Integration tests    x86
 ifeq ($(VARIANT), debug)
-CFLAGS=-DVARIANT_DEBUG
+CFLAGS += -DVARIANT_DEBUG
 BUILD_OUTPUT_DIR = $(DEBUG_BUILD_OUTPUT_DIR)
 endif
 ifeq ($(VARIANT), release)
-CFLAGS=
 BUILD_OUTPUT_DIR = $(RELEASE_BUILD_OUTPUT_DIR)
 endif
 
