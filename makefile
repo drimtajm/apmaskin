@@ -65,6 +65,7 @@ $(APPLICATION): $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(BIN_DIR) $(OBJS)
 	$(CC)  -o $(APPLICATION) $(OBJ_DIR)/*.o
 	@$(MV) $(APPLICATION) $(BIN_DIR)/
 	@touch $(BIN_DIR)/$(APPLICATION)  # ...otherwise $(BIN_DIR) will be younger than $(APPLICATION)
+	@echo ' '
 
 $(DEPS_DIR)/%.d: %.cpp
 	@echo 'Generating deps for "$<" because of "$?"'
@@ -73,22 +74,28 @@ $(DEPS_DIR)/%.d: %.cpp
 	$(CC) -MM $(CFLAGS) $< > $@.tmp; \
 	sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.tmp > $@; \
 	rm -f $@.tmp
+	@echo ' '
 
 %.o : %.cpp
 	@echo 'Compiling "$<" because of "$?"'
 	$(CC) $(CFLAGS) -c $< -o $(OBJ_DIR)/$@
+	@echo ' '
 
 $(BUILD_OUTPUT_DIR) :
 	$(MKDIR_P) $@
+	@echo ' '
 
 $(OBJ_DIR) :
 	$(MKDIR_P) $@
+	@echo ' '
 
 $(DEPS_DIR) :
 	$(MKDIR_P) $@
+	@echo ' '
 
 $(BIN_DIR) :
 	$(MKDIR_P) $@
+	@echo ' '
 
 clean:
 	$(RM) $(DEBUG_BUILD_OUTPUT_DIR) $(RELEASE_BUILD_OUTPUT_DIR) $(UNIT_TEST_BUILD_OUTPUT_DIR)

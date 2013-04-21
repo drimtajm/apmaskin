@@ -23,22 +23,26 @@ $(OBJ_DIR)/gtest-all.o : $(GTEST_SRCS_)
 	@echo 'Compiling "$@"'
 	$(CC) $(CFLAGS) -c \
             $(GTEST_DIR)/src/gtest-all.cc -o $@
+	@echo ' '
 
 $(OBJ_DIR)/gtest_main.o : $(GTEST_SRCS_)
 	$(MKDIR_P) $(OBJ_DIR)
 	@echo 'Compiling "$@"'
 	$(CC) $(CFLAGS) -c \
             $(GTEST_DIR)/src/gtest_main.cc -o $@
+	@echo ' '
 
 $(OBJ_DIR)/gtest_main.a : $(OBJ_DIR)/gtest-all.o $(OBJ_DIR)/gtest_main.o
 	$(MKDIR_P) $(OBJ_DIR)
 	@echo 'Archiving "$^" into "$@"'
 	$(AR) $(ARFLAGS) $@ $^
+	@echo ' '
 
 $(TESTS) : $(OBJS) $(OBJ_DIR)/gtest_main.a
 	@echo 'Linking "$@"...'
 	$(CC) $(CFLAGS) $(OBJ_DIR)/*.o $(OBJ_DIR)/gtest_main.a -lpthread -o $@
 	@$(MV) $(TESTS) $(BIN_DIR)/
 	@touch $(BIN_DIR)/$(TESTS)  # ...otherwise $(BIN_DIR) will be younger than $(TESTS)
+	@echo ' '
 
 endif
