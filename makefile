@@ -2,16 +2,18 @@ SHELL=/bin/bash
 CC = arm-linux-gnueabi-g++
 RM = rm -rf
 MKDIR_P = mkdir -vp
+MV = mv -v
 SRC_DIR = src
 DEBUG_BUILD_OUTPUT_DIR = debug
 RELEASE_BUILD_OUTPUT_DIR = release
 UNIT_TEST_BUILD_OUTPUT_DIR = unit_tests
 GTEST_DIR = gtest
-MV = mv -v
 
 APPLICATION = HelloRaspberry
 CFLAGS = -Wall
 
+# Variant-specific settings
+#-----------------------------
 # Intended variants:
 # 'VARIANT_DEBUG'             - With debug prints    ARM
 # 'VARIANT_RELEASE'           - Without prints       ARM
@@ -29,6 +31,7 @@ CC = g++
 BUILD_OUTPUT_DIR = $(UNIT_TEST_BUILD_OUTPUT_DIR)
 endif
 
+# Name the sub-directories of the build output directory
 OBJ_DIR  = $(BUILD_OUTPUT_DIR)/obj
 DEPS_DIR = $(BUILD_OUTPUT_DIR)/deps
 BIN_DIR  = $(BUILD_OUTPUT_DIR)/bin
@@ -42,7 +45,7 @@ VPATH = $(OBJ_DIR):$(BIN_DIR):$(SRC_DIR)
 OBJS = 
 DEPS =
 
-# Include modules
+# Include module makefiles
 include $(SRC_DIR)/hello/hello.mk
 include $(SRC_DIR)/led/led.mk
 include $(SRC_DIR)/motor/motor.mk
@@ -51,11 +54,12 @@ include $(SRC_DIR)/motor/motor.mk
 # unit test object files will be left out
 include $(GTEST_DIR)/gtest.mk
 
-# Include dependency files
+# Include dependency files, if they exist, unless we're cleaning
 ifneq ($(MAKECMDGOALS),clean)
 -include $(DEPS)
 endif
 
+# Unit test builds shall not link the application
 ifneq ($(VARIANT), unit_tests)
 all : $(APPLICATION)
 endif
@@ -67,6 +71,7 @@ $(APPLICATION): $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(BIN_DIR) $(OBJS)
 	@touch $(BIN_DIR)/$(APPLICATION)  # ...otherwise $(BIN_DIR) will be younger than $(APPLICATION)
 	@echo ' '
 
+# Automatic dependency file generation
 $(DEPS_DIR)/%.d: %.cpp
 	@echo 'Generating deps for "$<" because of "$?"'
 	@set -e; rm -f $@; \
@@ -76,11 +81,13 @@ $(DEPS_DIR)/%.d: %.cpp
 	rm -f $@.tmp
 	@echo ' '
 
+# Genreral rule for object file generation (compilation)
 %.o : %.cpp
 	@echo 'Compiling "$<" because of "$?"'
 	$(CC) $(CFLAGS) -c $< -o $(OBJ_DIR)/$@
 	@echo ' '
 
+# Rules for build output directory and its sub-directories
 $(BUILD_OUTPUT_DIR) :
 	$(MKDIR_P) $@
 	@echo ' '
