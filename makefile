@@ -71,7 +71,7 @@ $(APPLICATION): $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(BIN_DIR) $(OBJS)
 	@touch $(BIN_DIR)/$(APPLICATION)  # ...otherwise $(BIN_DIR) will be younger than $(APPLICATION)
 	@echo ' '
 
-# Automatic dependency file generation
+# General rule for dependency file generation
 $(DEPS_DIR)/%.d: %.cpp
 	@echo 'Generating deps for "$<" because of "$?"'
 	@set -e; rm -f $@; \
