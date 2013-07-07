@@ -17,14 +17,22 @@ endif
 SRC_DIR = src
 OBJ_DIR = $(BUILD_OUTPUT_DIR)/obj
 
+DEPS_DIR = $(BUILD_OUTPUT_DIR)/deps
+
 PROD_LIB_DIR = $(BUILD_OUTPUT_DIR)/lib
 PROD_LIB = $(PROD_LIB_DIR)/prod.a
 
 # 'PROD_OBJ' lists object files from product sourcefiles
 # Contents of this variable will be initially empty and then added to by module makefiles
 PROD_OBJ =
+DEPS =
 
 include $(SRC_DIR)/foo/foo.mk
+
+# Include dependency files, if they exist, unless we're cleaning
+ifneq ($(MAKECMDGOALS),clean)
+-include $(DEPS)
+endif
 
 .PHONY : all clean
 all : $(VARIANT)
@@ -39,11 +47,23 @@ $(OBJ_DIR)/%.o : %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 	@echo ' '
 
+$(DEPS_DIR)/%.d: %.cpp
+	@echo 'Generating deps for "$<" because of "$?"'
+	@set -e; rm -f $@; \
+	$(MKDIR) $(DEPS_DIR)
+	$(CC) -MM $(CFLAGS) $< > $@.tmp; \
+	sed 's,\($*\)\.o[ :]*,$(OBJ_DIR)/\1.o $@ : ,g' < $@.tmp > $@; \
+	rm -f $@.tmp
+	@echo ' '
+
 $(PROD_LIB) : $(BUILD_OUTPUT_DIR) $(PROD_LIB_DIR) $(PROD_OBJ)
 	touch $@
 
 $(OBJ_DIR) :
 	@$(MKDIR) $@
+
+$(DEPS_DIR) :
+	$(MKDIR) $@
 	
 $(PROD_LIB_DIR) :
 	@$(MKDIR) $@
