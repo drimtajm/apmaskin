@@ -40,13 +40,13 @@ $(OBJ_DIR)/%.o : %.cpp
 	@echo ' '
 
 $(PROD_LIB) : $(BUILD_OUTPUT_DIR) $(PROD_LIB_DIR) $(PROD_OBJ)
-	touch $(PROD_LIB)
+	touch $@
 
 $(OBJ_DIR) :
-	@$(MKDIR) $(OBJ_DIR)
+	@$(MKDIR) $@
 	
 $(PROD_LIB_DIR) :
-	@$(MKDIR) $(PROD_LIB_DIR)
+	@$(MKDIR) $@
 
 DEBUG : $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(PROD_LIB)
 	@echo Nothing specified for variant DEBUG
@@ -58,10 +58,10 @@ UNIT_TEST : $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(PROD_LIB)
 	@echo Nothing specified for variant UNIT_TEST
 
 $(UNIT_TEST_BUILD_OUTPUT_DIR) :
-	@$(MKDIR) $(UNIT_TEST_BUILD_OUTPUT_DIR)
+	@$(MKDIR) $@
 
 $(DEBUG_BUILD_OUTPUT_DIR) :
-	@$(MKDIR) $(DEBUG_BUILD_OUTPUT_DIR)
+	@$(MKDIR) $@
 
 $(RELEASE_BUILD_OUTPUT_DIR) :
-	@$(MKDIR) $(RELEASE_BUILD_OUTPUT_DIR)
+	@$(MKDIR) $@
