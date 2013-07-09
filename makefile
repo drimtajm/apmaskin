@@ -63,9 +63,12 @@ $(OBJ_DIR) :
 	@$(MKDIR) $@
 
 $(DEPS_DIR) :
-	$(MKDIR) $@
+	@$(MKDIR) $@
 	
 $(PROD_LIB_DIR) :
+	@$(MKDIR) $@
+
+$(BUILD_OUTPUT_DIR) :
 	@$(MKDIR) $@
 
 DEBUG : $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(PROD_LIB)
@@ -76,6 +79,3 @@ RELEASE : $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(PROD_LIB)
 	
 UNIT_TEST : $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(PROD_LIB)
 	@echo Nothing specified for variant UNIT_TEST
-
-$(BUILD_OUTPUT_DIR) :
-	@$(MKDIR) $@
