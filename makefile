@@ -37,7 +37,8 @@ PROD_OBJ =
 DEPS =
 
 include $(SRC_DIR)/hello/hello.mk
-#include $(SRC_DIR)/foo/foo.mk
+include $(SRC_DIR)/led/led.mk
+include $(SRC_DIR)/motor/motor.mk
 
 # Include dependency files, if they exist, unless we're cleaning
 ifneq ($(MAKECMDGOALS),clean)
