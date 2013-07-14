@@ -24,21 +24,34 @@ OBJ_DIR = $(BUILD_OUTPUT_DIR)/obj
 
 DEPS_DIR = $(BUILD_OUTPUT_DIR)/deps
 
-PROD_LIB_DIR = $(BUILD_OUTPUT_DIR)/lib
-PROD_LIB = $(PROD_LIB_DIR)/prod.a
+LIB_DIR = $(BUILD_OUTPUT_DIR)/lib
+PROD_LIB = $(LIB_DIR)/prod.a
 
 BIN_DIR  = $(BUILD_OUTPUT_DIR)/bin
 
-MAIN_APPLICATION = $(BIN_DIR)/HelloRaspberry
+GTEST_DIR = gtest
+
+MAIN_APPLICATION   = $(BIN_DIR)/HelloRaspberry
+UNIT_TEST_BINARIES =
+GENERAL_TARGET_DEPENDENCIES = $(BUILD_OUTPUT_DIR) $(BIN_DIR) $(OBJ_DIR) $(LIB_DIR) $(PROD_LIB)
 
 # 'PROD_OBJ' lists object files from product sourcefiles
 # Contents of this variable will be initially empty and then added to by module makefiles
 PROD_OBJ =
-DEPS =
+DEPS     =
+
+# Must be before module makefiles
+ifeq ($(VARIANT), UNIT_TEST)
+include $(GTEST_DIR)/gtest.mk
+endif
 
 include $(SRC_DIR)/hello/hello.mk
 include $(SRC_DIR)/led/led.mk
 include $(SRC_DIR)/motor/motor.mk
+
+ifeq ($(VARIANT), UNIT_TEST)
+include $(GTEST_DIR)/all_unit_tests_command.mk
+endif
 
 # Include dependency files, if they exist, unless we're cleaning
 ifneq ($(MAKECMDGOALS),clean)
@@ -48,10 +61,12 @@ endif
 .PHONY : all clean
 all : $(VARIANT)
 	@echo Done building variant $(VARIANT)
+	@echo ' '
 
 clean :
 	@echo Cleaning everything
 	$(RM) $(DEBUG_BUILD_OUTPUT_DIR) $(RELEASE_BUILD_OUTPUT_DIR) $(UNIT_TEST_BUILD_OUTPUT_DIR)
+	@echo ' '
 
 $(OBJ_DIR)/%.o : %.cpp
 	@echo 'Compiling "$<" because of "$?"'
@@ -67,33 +82,39 @@ $(DEPS_DIR)/%.d : %.cpp
 	rm -f $@.tmp
 	@echo ' '
 
-$(MAIN_APPLICATION) : $(BIN_DIR) $(PROD_LIB)
+$(MAIN_APPLICATION) : $(BIN_DIR) $(PROD_LIB) $(MAIN_OBJ)
 	@echo 'Linking $@'
-	$(CC) -o $@ $(PROD_LIB)
+	$(CC) -o $@ $(MAIN_OBJ) $(PROD_LIB)
+	@echo ' '
 
-$(PROD_LIB) : $(PROD_LIB_DIR) $(PROD_OBJ)
+$(PROD_LIB) : $(PROD_OBJ)
 	@echo 'Archiving product object files into "$@"'
 	$(AR) $(ARFLAGS) $@ $(PROD_OBJ)
 	@echo ' '
 
 $(OBJ_DIR) :
 	@$(MKDIR) $@
+	@echo ' '
 
 $(DEPS_DIR) :
 	@$(MKDIR) $@
+	@echo ' '
 	
-$(PROD_LIB_DIR) :
+$(LIB_DIR) :
 	@$(MKDIR) $@
+	@echo ' '
 
 $(BIN_DIR) :
 	@$(MKDIR) $@
+	@echo ' '
 
 $(BUILD_OUTPUT_DIR) :
 	@$(MKDIR) $@
+	@echo ' '
 
-DEBUG : $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(PROD_LIB) $(MAIN_APPLICATION)
+DEBUG : $(GENERAL_TARGET_DEPENDENCIES) $(MAIN_APPLICATION)
 
-RELEASE : $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(PROD_LIB) $(MAIN_APPLICATION)
-	
-UNIT_TEST : $(BUILD_OUTPUT_DIR) $(OBJ_DIR) $(PROD_LIB)
-	@echo Nothing specified for variant UNIT_TEST
+RELEASE : $(GENERAL_TARGET_DEPENDENCIES) $(MAIN_APPLICATION)
+
+UNIT_TEST : $(GENERAL_TARGET_DEPENDENCIES) $(UNIT_TEST_BINARIES)
+	$(ALL_UNIT_TESTS_COMMAND)
