@@ -1,7 +1,0 @@
-#! /bin/sh
-
-/bin/mount -a
-modprobe btusb
-hciconfig hci up
-syslogd -O /tmp/syslog
-dbus-launch --config-file=/etc/dbus-1/session.conf
