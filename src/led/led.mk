@@ -5,7 +5,6 @@ CFLAGS   += -I$(SRC_DIR)/led
 
 UNIT_TEST_BINARIES += $(BIN_DIR)/led$(TEST_SUITE_SUFFIX)
 
-LED_TEST_RUNNER = $(AUTO_SRC_DIR)/led_test_runner$(SRC_EXT)
 LED_TEST_OBJ    = $(OBJ_DIR)/led_test_runner$(OBJ_EXT) $(OBJ_DIR)/led$(TEST_SUITE_SUFFIX)$(OBJ_EXT)
 
 $(AUTO_SRC_DIR)/led_test_runner.c : led$(TEST_SUITE_SUFFIX).c

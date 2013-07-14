@@ -3,7 +3,7 @@ CC = arm-linux-gnueabi-gcc
 MKDIR = mkdir -pv
 RM = rm -rf
 RUBY = ruby
-CFLAGS = -Wall
+CFLAGS =
 ARFLAGS = rv
 HEADR_EXT = .h
 SRC_EXT = .c
@@ -16,10 +16,12 @@ UNIT_TEST_BUILD_OUTPUT_DIR = unit_test
 TEST_SUITE_SUFFIX = _tests
 
 ifeq ($(VARIANT), DEBUG)
+  CFLAGS = -Wall
   CFLAGS += -DVARIANT_DEBUG
   BUILD_OUTPUT_DIR = $(DEBUG_BUILD_OUTPUT_DIR)
 endif
 ifeq ($(VARIANT), RELEASE)
+  CFLAGS = -Wall
   BUILD_OUTPUT_DIR = $(RELEASE_BUILD_OUTPUT_DIR)
 endif
 ifeq ($(VARIANT), UNIT_TEST)

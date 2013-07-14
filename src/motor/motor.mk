@@ -5,7 +5,6 @@ CFLAGS   += -I$(SRC_DIR)/motor
 
 UNIT_TEST_BINARIES += $(BIN_DIR)/motor$(TEST_SUITE_SUFFIX)
 
-MOTOR_TEST_RUNNER = $(AUTO_SRC_DIR)/motor_test_runner$(SRC_EXT)
 MOTOR_TEST_OBJ    = $(OBJ_DIR)/motor_test_runner$(OBJ_EXT) $(OBJ_DIR)/motor$(TEST_SUITE_SUFFIX)$(OBJ_EXT)
 
 $(AUTO_SRC_DIR)/motor_test_runner.c : motor$(TEST_SUITE_SUFFIX).c
