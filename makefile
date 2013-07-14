@@ -1,11 +1,12 @@
 SHELL=/bin/bash
-CC = arm-linux-gnueabi-g++
+CC = arm-linux-gnueabi-gcc
 MKDIR = mkdir -pv
 RM = rm -rf
+RUBY = ruby
 CFLAGS = -Wall
 ARFLAGS = rv
 HEADR_EXT = .h
-SRC_EXT = .cpp
+SRC_EXT = .c
 OBJ_EXT = .o
 DEP_EXT = .d
 LIB_EXT = .a
@@ -22,7 +23,7 @@ ifeq ($(VARIANT), RELEASE)
   BUILD_OUTPUT_DIR = $(RELEASE_BUILD_OUTPUT_DIR)
 endif
 ifeq ($(VARIANT), UNIT_TEST)
-  CC = g++
+  CC = gcc
   BUILD_OUTPUT_DIR = $(UNIT_TEST_BUILD_OUTPUT_DIR)
 endif
 
@@ -36,7 +37,7 @@ PROD_LIB = $(LIB_DIR)/prod$(LIB_EXT)
 
 BIN_DIR  = $(BUILD_OUTPUT_DIR)/bin
 
-GTEST_DIR = gtest
+UNITY_DIR = unity
 
 MAIN_APPLICATION   = $(BIN_DIR)/HelloRaspberry
 UNIT_TEST_BINARIES =
@@ -49,7 +50,7 @@ DEPS     =
 
 # Must be before module makefiles
 ifeq ($(VARIANT), UNIT_TEST)
-include $(GTEST_DIR)/gtest.mk
+include $(UNITY_DIR)/unity.mk
 endif
 
 include $(SRC_DIR)/hello/hello.mk
@@ -57,7 +58,7 @@ include $(SRC_DIR)/led/led.mk
 include $(SRC_DIR)/motor/motor.mk
 
 ifeq ($(VARIANT), UNIT_TEST)
-include $(GTEST_DIR)/all_unit_tests_command.mk
+include $(UNITY_DIR)/all_unit_tests_command.mk
 endif
 
 # Include dependency files, if they exist, unless we're cleaning
@@ -123,5 +124,5 @@ DEBUG : $(GENERAL_TARGET_DEPENDENCIES) $(MAIN_APPLICATION)
 
 RELEASE : $(GENERAL_TARGET_DEPENDENCIES) $(MAIN_APPLICATION)
 
-UNIT_TEST : $(GENERAL_TARGET_DEPENDENCIES) $(UNIT_TEST_BINARIES)
+UNIT_TEST : $(GENERAL_TARGET_DEPENDENCIES) $(AUTO_SRC_DIR) $(UNIT_TEST_BINARIES)
 	$(ALL_UNIT_TESTS_COMMAND)

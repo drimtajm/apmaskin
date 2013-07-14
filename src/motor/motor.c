@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "motor.h"
 
-void Motor::start()
+void start(void)
 {
   printf("'Motor::start()' not implemented yet!\n");
 }
 
-void Motor::stop()
+void stop(void)
 {
   printf("'Motor::stop()' not implemented yet!\n");
 }
