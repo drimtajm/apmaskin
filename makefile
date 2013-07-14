@@ -1,5 +1,5 @@
 SHELL=/bin/bash
-CC = g++
+CC = arm-linux-gnueabi-g++
 MKDIR = mkdir -pv
 RM = rm -rf
 CFLAGS = -Wall
@@ -17,6 +17,7 @@ ifeq ($(VARIANT), RELEASE)
   BUILD_OUTPUT_DIR = $(RELEASE_BUILD_OUTPUT_DIR)
 endif
 ifeq ($(VARIANT), UNIT_TEST)
+  CC = g++
   BUILD_OUTPUT_DIR = $(UNIT_TEST_BUILD_OUTPUT_DIR)
 endif
 
