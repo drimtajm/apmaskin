@@ -1,11 +1,11 @@
 VPATH    += $(SRC_DIR)/led
-DEPS     += $(DEPS_DIR)/led$(DEP_EXT)
-PROD_OBJ += $(OBJ_DIR)/led$(OBJ_EXT)
+DEPS     += $(DEPS_DIR)/led.d
+PROD_OBJ += $(OBJ_DIR)/led.o
 CFLAGS   += -I$(SRC_DIR)/led
 
 UNIT_TEST_BINARIES += $(BIN_DIR)/led$(TEST_SUITE_SUFFIX)
 
-LED_TEST_OBJ    = $(OBJ_DIR)/led_test_runner$(OBJ_EXT) $(OBJ_DIR)/led$(TEST_SUITE_SUFFIX)$(OBJ_EXT)
+LED_TEST_OBJ    = $(OBJ_DIR)/led_test_runner.o $(OBJ_DIR)/led$(TEST_SUITE_SUFFIX).o
 
 $(AUTO_SRC_DIR)/led_test_runner.c : led$(TEST_SUITE_SUFFIX).c
 	@echo Generating test runner $@

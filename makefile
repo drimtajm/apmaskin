@@ -5,11 +5,6 @@ RM = rm -rf
 RUBY = ruby
 CFLAGS =
 ARFLAGS = rv
-HEADR_EXT = .h
-SRC_EXT = .c
-OBJ_EXT = .o
-DEP_EXT = .d
-LIB_EXT = .a
 DEBUG_BUILD_OUTPUT_DIR = debug
 RELEASE_BUILD_OUTPUT_DIR = release
 UNIT_TEST_BUILD_OUTPUT_DIR = unit_test
@@ -35,7 +30,7 @@ OBJ_DIR = $(BUILD_OUTPUT_DIR)/obj
 DEPS_DIR = $(BUILD_OUTPUT_DIR)/deps
 
 LIB_DIR = $(BUILD_OUTPUT_DIR)/lib
-PROD_LIB = $(LIB_DIR)/prod$(LIB_EXT)
+PROD_LIB = $(LIB_DIR)/prod.a
 
 BIN_DIR  = $(BUILD_OUTPUT_DIR)/bin
 
@@ -78,12 +73,12 @@ clean :
 	$(RM) $(DEBUG_BUILD_OUTPUT_DIR) $(RELEASE_BUILD_OUTPUT_DIR) $(UNIT_TEST_BUILD_OUTPUT_DIR)
 	@echo ' '
 
-$(OBJ_DIR)/%$(OBJ_EXT) : %$(SRC_EXT)
+$(OBJ_DIR)/%.o : %.c
 	@echo 'Compiling "$<" because of "$?"'
 	$(CC) $(CFLAGS) -c $< -o $@
 	@echo ' '
 
-$(DEPS_DIR)/%$(DEP_EXT) : %$(SRC_EXT)
+$(DEPS_DIR)/%.d : %.c
 	@echo 'Generating deps for "$<" because of "$?"'
 	@set -e; rm -f $@; \
 	$(MKDIR) $(DEPS_DIR)
