@@ -1,20 +1,20 @@
 #include "led.h"
 #include "led_spy.h"
 
-static int ledIsOn_ = 0;
+static LedState ledState = LED_STATE_UNKNOWN;
 
 void ledMockReset(void) {
-  ledIsOn_ = 0;
+  ledState = LED_STATE_UNKNOWN;
 }
 
-int ledIsOn(void) {
-  return ledIsOn_;
+LedState getLedState(void) {
+  return ledState;
 }
 
 void turnOnLed(void) {
-  ledIsOn_ = 1;
+  ledState = LED_STATE_ON;
 }
 
 void turnOffLed(void) {
-  ledIsOn_ = 0;
+  ledState = LED_STATE_OFF;
 }
