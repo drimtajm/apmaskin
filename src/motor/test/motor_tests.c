@@ -12,3 +12,8 @@ void test_MotorLightsLedWhenStarted(void) {
   start();
   TEST_ASSERT_EQUAL(LED_STATE_ON, getLedState());
 }
+
+void test_MotorSwitchesOffLedWhenStopped(void) {
+  stop();
+  TEST_ASSERT_EQUAL(LED_STATE_OFF, getLedState());
+}

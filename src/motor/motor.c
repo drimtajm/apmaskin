@@ -9,5 +9,5 @@ void start(void)
 
 void stop(void)
 {
-  printf("'Motor::stop()' not implemented yet!\n");
+  turnOffLed();
 }
