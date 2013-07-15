@@ -10,5 +10,5 @@ void tearDown(void) {}
 
 void test_MotorLightsLedWhenStarted(void) {
   start();
-  TEST_ASSERT(ledIsOn());
+  TEST_ASSERT(getLedState() == LED_STATE_ON);
 }
