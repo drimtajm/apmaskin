@@ -4,6 +4,6 @@
 void setUp(void) {}
 void tearDown(void) {}
 
-void test_LedAlwaysFail(void) {
-  TEST_ASSERT(0);
+void test_UselessAlwaysPass(void) {
+  TEST_ASSERT(1);
 }

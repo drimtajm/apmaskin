@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include "motor.h"
+#include "led.h"
 
 void start(void)
 {
-  printf("'Motor::start()' not implemented yet!\n");
+  turnOnLed();
 }
 
 void stop(void)

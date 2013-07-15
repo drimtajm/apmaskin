@@ -9,7 +9,7 @@ CFLAGS += -I$(UNITY_SRC_DIR)
 GEN_TEST_RUNNER = @$(RUBY) $(UNITY_AUTO_DIR)/generate_test_runner.rb
 
 $(OBJ_DIR)/%_runner.o : $(AUTO_SRC_DIR)/%_runner.c
-	@echo Compiling $@
+	@echo Compiling $^
 	$(CC) $(CFLAGS) -c $^ -o $@
 	@echo ' '
  
