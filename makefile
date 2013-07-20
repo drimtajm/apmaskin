@@ -10,7 +10,7 @@ RELEASE_BUILD_OUTPUT_DIR = release
 UNIT_TEST_BUILD_OUTPUT_DIR = unit_test
 TEST_SUITE_SUFFIX = _tests
 
-
+# Variant santy-check and variant settings
 ifeq ($(VARIANT), DEBUG)
   CFLAGS = -Wall
   CFLAGS += -DVARIANT_DEBUG
@@ -53,10 +53,12 @@ ifeq ($(VARIANT), UNIT_TEST)
 include $(UNITY_DIR)/unity.mk
 endif
 
+# Add module makefiles here
 include $(SRC_DIR)/hello/hello.mk
 include $(SRC_DIR)/led/led.mk
 include $(SRC_DIR)/motor/motor.mk
 
+# Define shell command for running all unit tests - Must be after module makefiles
 ifeq ($(VARIANT), UNIT_TEST)
 include $(UNITY_DIR)/all_unit_tests_command.mk
 endif
