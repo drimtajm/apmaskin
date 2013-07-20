@@ -21,6 +21,8 @@ else ifeq ($(VARIANT), RELEASE)
 else ifeq ($(VARIANT), UNIT_TEST)
   CC = gcc
   BUILD_OUTPUT_DIR = $(UNIT_TEST_BUILD_OUTPUT_DIR)
+else ifeq ($(MAKECMDGOALS),clean)
+  # Do nothing - 'clean' does not require any 'VARIANT'
 else
   $(error Variable 'VARIANT' must be "DEBUG", "RELEASE" or "UNIT_TEST". VARIANT=$(VARIANT))
 endif
